@@ -1,2682 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BUBBLE BOOM LTD is an independent mobile app and game studio creating polished digital experiences for users worldwide." />
+  <title>BUBBLE BOOM LTD | Apps • Games • Digital Experiences</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="language" content="Hebrew">
-<title>פטור מצה"ל | Amnon Support</title>
-<style>
-  .skip-nav{position:absolute;top:-100px;right:0;background:var(--green-l,#a8c447);color:#1a2406;padding:10px 20px;font-weight:800;font-size:16px;text-decoration:none;z-index:9999;border-radius:0 0 8px 8px;transition:top .2s}
-  .skip-nav:focus{top:0}
-</style>
+  <style>
+    :root{
+      --bg:#f5f7fb;
+      --bg2:#eef2f8;
+      --card:#ffffff;
+      --card2:#f8fafc;
+      --text:#101828;
+      --muted:#667085;
+      --line:rgba(16,24,40,.10);
+      --accent:#2563eb;
+      --accent2:#0f172a;
+      --success:#22c55e;
+      --shadow:0 24px 70px rgba(15,23,42,.12);
+    }
 
-<style>
-  :root{
-    --green:#6b8e23;
-    --green-d:#4f6b1a;
-    --green-l:#a8c447;
-    --neon:#b8ff3c;
-    --neon-glow:rgba(184,255,60,.35);
-    --olive:#586c2a;
-    --olive-d:#3a4a1e;
-    --bg:#f0f2ec;
-    --text:#1a1f14;
-    --muted:#5a5f55;
-    --line:#dde0d4;
-    --glass:rgba(255,255,255,.06);
-    --glass-border:rgba(184,255,60,.18);
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0}
-  body{font-family:"Heebo","Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;direction:rtl}
-  a{color:inherit}
-  .container{max-width:1200px;margin:0 auto;padding:0 24px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,Arial,Helvetica,sans-serif;
+      background:
+        radial-gradient(circle at 85% 8%, rgba(37,99,235,.10), transparent 26%),
+        radial-gradient(circle at 12% 28%, rgba(15,23,42,.05), transparent 24%),
+        linear-gradient(180deg,var(--bg),var(--bg2));
+      color:var(--text);
+      line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+    }
 
-  .hero{
-    position:relative;color:#fff;text-align:center;
-    padding:24px 0 80px;
-    min-height:600px;
-    display:flex;flex-direction:column;justify-content:center;
-    overflow:hidden;
-    background:#0f1c09;
-  }
-  .hero-slides{position:absolute;inset:0;z-index:0}
-  .hero-slide{
-    position:absolute;inset:0;
-    background-size:cover;
-    background-repeat:no-repeat;
-    opacity:0;transition:opacity 1.8s ease;
-  }
-  .hero-slide.active{opacity:1}
-  @media(max-width:768px){
-    .hero{min-height:480px}
-    .hero-slide{background-size:cover!important}
-  }
-  .hero-overlay{
-    position:absolute;inset:0;z-index:1;
-    background:
-      radial-gradient(circle,rgba(168,196,71,.04) 1px,transparent 1px),
-      linear-gradient(rgba(12,22,6,.80) 0%,rgba(8,16,4,.88) 100%);
-    background-size:28px 28px,100% 100%;
-  }
-  .hero>.container{position:relative;z-index:2}
-  .topbar{display:flex;justify-content:space-between;align-items:center;padding:8px 0;margin-bottom:60px}
-  .logo{font-size:22px;font-weight:800;color:#fff;text-align:left;line-height:1.1}
-  .logo small{display:block;font-size:11px;color:#cfd8a8;font-weight:400;margin-top:3px}
-  .hero-body{max-width:840px;margin:0 auto;position:relative}
-  .hero-tag{display:inline-block;background:rgba(168,196,71,.15);border:1px solid var(--green-l);color:var(--green-l);padding:5px 16px;border-radius:999px;font-size:13px;font-weight:700;margin-bottom:20px}
-  .hero-body h1{font-size:50px;line-height:1.2;margin:0 0 18px;font-weight:900}
-  .hero-body h1 .accent{color:var(--green-l)}
-  .hero-body .sub{font-size:19px;color:#dde6b8;margin:0 0 32px}
-  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
-  .btn{display:inline-block;padding:15px 30px;border-radius:8px;font-weight:800;text-decoration:none;border:0;cursor:pointer;font-size:16px;font-family:inherit}
-  .btn-primary{background:var(--green-l);color:#1a2406}
-  .btn-ghost{background:transparent;color:#fff;border:1.5px solid #fff}
-  .bubbles{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:50px}
-  .bubble{background:#fff;color:#222;padding:14px 18px;border-radius:14px;max-width:260px;font-size:13.5px;box-shadow:0 8px 24px rgba(0,0,0,.25);line-height:1.4;text-align:right;position:relative}
-  .bubble::before{content:"\201D";position:absolute;top:-4px;right:12px;font-size:38px;color:var(--green);line-height:1}
-  .bubble small{display:block;margin-top:6px;color:var(--muted);font-size:12px}
+    a{color:inherit}
+    .wrap{width:min(1180px,92%);margin:0 auto}
 
-  .lead-wrap{max-width:1100px;margin:-52px auto 0;padding:0 24px;position:relative;z-index:5}
-  .lead-card{background:#fff;border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.12);padding:28px 32px;display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:center}
-  .lead-card h2{margin:0 0 5px;font-size:22px}
-  .lead-card .sub{color:var(--muted);margin:0;font-size:15px}
-  .lead-form{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .lead-form input{padding:13px;border:1px solid var(--line);border-radius:8px;font-size:15px;font-family:inherit;direction:rtl;width:100%}
-  .lead-form button{grid-column:1/-1;background:var(--green-l);color:#1a2406;font-weight:800;padding:13px;border:0;border-radius:8px;cursor:pointer;font-size:16px}
+    header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(255,255,255,.88);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--line);
+    }
 
-  .strip{padding:64px 0 40px;text-align:center}
-  .strip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .strip-item{display:flex;flex-direction:column;align-items:center;gap:10px;font-weight:700;font-size:16px}
-  .check{width:42px;height:42px;border:1.5px solid var(--line);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--green);font-size:22px;font-weight:900}
+    .nav{
+      min-height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:22px;
+    }
 
-  .why{padding:70px 0;background:#fff}
-  .why h2{font-size:34px;margin:0 0 10px;line-height:1.25}
-  .why h2 .accent{color:var(--green)}
-  .why .lead-txt{color:var(--muted);font-size:16px;max-width:700px;margin:0 0 40px}
-  .why p{color:var(--muted);margin:0 0 14px;font-size:16px}
-  .why-points{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
-  .wp{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:22px;text-align:center}
-  .wp .ico{font-size:32px;margin-bottom:10px}
-  .wp h3{margin:0 0 6px;font-size:17px}
-  .wp p{margin:0;font-size:14px;color:var(--muted)}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      font-weight:900;
+      letter-spacing:.2px;
+    }
 
-  .stats{background:#eef1e6;padding:20px 0 70px;text-align:center}
-  .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;border-top:1px solid var(--line);padding-top:40px}
-  .stat .num{color:var(--green);font-size:48px;font-weight:900}
-  .stat .lbl{color:var(--muted)}
+    .brand-mark{
+      width:40px;
+      height:40px;
+      border-radius:13px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--accent),#1d4ed8);
+      color:#fff;
+      font-weight:1000;
+      box-shadow:0 10px 30px rgba(37,99,235,.18);
+    }
 
-  .band{color:#fff;padding:80px 0;background:linear-gradient(rgba(30,50,10,.92),rgba(30,50,10,.92))}
-  .band-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:50px;align-items:center}
-  .band .kicker{color:var(--green-l);font-weight:700;margin:0 0 8px}
-  .band h2{font-size:30px;margin:0 0 16px;line-height:1.3}
-  .band p{color:#dde2c8;margin:0 0 12px;font-size:15px}
-  .pillars{display:flex;flex-direction:column;gap:14px}
-  .pillar{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:16px 18px;border-radius:14px;display:flex;align-items:center;gap:14px;font-size:15px}
-  .pillar .ico{width:46px;height:46px;border-radius:50%;background:var(--green-l);color:#1a2406;display:flex;align-items:center;justify-content:center;font-weight:900;flex-shrink:0;font-size:18px}
+    .brand-copy small{
+      display:block;
+      font-size:11px;
+      color:var(--muted);
+      font-weight:700;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+    }
 
-  .services{padding:80px 0;background:#fff;text-align:center}
-  .services h2{font-size:34px;margin:0 0 10px}
-  .services h2 .accent{color:var(--green)}
-  .services .lead{color:var(--muted);max-width:680px;margin:0 auto 44px;font-size:16px}
-  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-  .svc{background:#fff;border:1px solid var(--line);border-radius:18px;padding:36px 24px 28px;position:relative;padding-top:66px}
-  .svc .ico{width:66px;height:66px;border:1px solid var(--line);border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;position:absolute;top:-33px;right:50%;transform:translateX(50%);font-size:28px}
-  .svc small{color:var(--muted);font-size:13px}
-  .svc h3{margin:6px 0 12px;font-size:20px;font-weight:800}
-  .svc p{color:var(--muted);font-size:14px;margin:0 0 18px}
-  .svc .more{display:inline-block;background:var(--green-l);color:#1a2406;padding:9px 20px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14px;border:0;cursor:pointer}
+    nav{
+      display:flex;
+      align-items:center;
+      gap:28px;
+    }
 
-  .cta-band{color:#fff;padding:64px 0;border-radius:18px;margin:60px 0;background:linear-gradient(135deg,var(--olive-d),var(--green-d))}
-  .cta-band .inner{max-width:800px;margin:0 auto;text-align:center;padding:0 24px}
-  .cta-band h2{font-size:30px;margin:0 0 8px}
-  .cta-band p{color:#dde2c8;margin:0 0 22px}
-  .cta-band .lead-form{max-width:680px;margin:0 auto}
-  .cta-band .lead-form input{background:#fff}
+    nav a{
+      text-decoration:none;
+      color:var(--muted);
+      font-size:14px;
+      font-weight:800;
+    }
 
-  .testimonials{padding:80px 0;background:#fff;text-align:center}
-  .testimonials h2{font-size:34px;margin:0 0 10px}
-  .testimonials .lead{color:var(--muted);max-width:620px;margin:0 auto 50px;font-size:16px}
-  .testi-placeholder{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:30px}
-  .testi-box{background:#1c1c1e;border-radius:24px;padding:16px;width:200px;height:300px;display:flex;align-items:center;justify-content:center;color:#888;font-size:14px}
-  .testi-cta{margin-top:30px}
+    nav a:hover{color:var(--text)}
+    .nav-cta{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.05);
+      padding:10px 16px;
+      border-radius:12px;
+      color:var(--text)!important;
+    }
 
-  .overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);display:none;align-items:center;justify-content:center;z-index:100;padding:16px}
-  .overlay.open{display:flex}
-  .modal{background:#fff;border-radius:16px;width:100%;max-width:460px;padding:28px;position:relative}
-  .modal h2{margin:0 0 6px}
-  .modal p{margin:0 0 14px;color:#666;font-size:14px}
-  .modal label{display:block;font-weight:600;margin:8px 0 4px;font-size:14px}
-  .modal input,.modal textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:8px;font-size:15px;font-family:inherit;direction:rtl}
-  .modal textarea{min-height:90px;resize:vertical}
-  .modal button[type=submit]{margin-top:14px;width:100%;background:var(--green-l);color:#1a2406;font-weight:800;font-size:16px;padding:13px;border:0;border-radius:8px;cursor:pointer}
-  .close-btn{position:absolute;top:8px;left:14px;background:none;border:0;font-size:28px;cursor:pointer;color:#888}
-
-  footer{background:var(--olive-d);color:#cfd8a8;text-align:center;padding:30px;font-size:14px}
-
-  /* ── How it works ── */
-  .how{padding:80px 0;background:#fff}
-  .how h2{font-size:34px;text-align:center;margin:0 0 10px}
-  .how .lead{color:var(--muted);text-align:center;max-width:620px;margin:0 auto 56px;font-size:16px}
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
-  .steps::before{content:'';position:absolute;top:36px;right:12.5%;left:12.5%;height:2px;background:linear-gradient(to left,var(--green-l),var(--green));z-index:0}
-  .step{text-align:center;position:relative;z-index:1;padding:0 12px}
-  .step-num{width:72px;height:72px;border-radius:50%;background:var(--green-l);color:#1a2406;font-size:26px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;border:4px solid #fff;box-shadow:0 4px 16px rgba(107,142,35,.3)}
-  .step h4{font-size:16px;font-weight:800;margin:0 0 6px;color:#1a2406}
-  .step p{font-size:13px;color:var(--muted);margin:0;line-height:1.6}
-
-  /* ── Colored service cards ── */
-  .svc-red{border-top:4px solid #e05252!important}
-  .svc-blue{border-top:4px solid #4c7ee0!important}
-  .svc-grn{border-top:4px solid var(--green)!important}
-  .svc-red .ico{color:#e05252!important;border-color:#e05252!important}
-  .svc-blue .ico{color:#4c7ee0!important;border-color:#4c7ee0!important}
-  .svc-grn .ico{color:var(--green)!important;border-color:var(--green)!important}
-  .svc-red .more{background:#e05252!important;color:#fff!important}
-  .svc-blue .more{background:#4c7ee0!important;color:#fff!important}
-  .svc-grn .more{background:var(--green)!important;color:#fff!important}
-
-  /* ── Testimonial cards ── */
-  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px;text-align:right}
-  .testi-card{background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:14px;transition:box-shadow .2s,transform .2s}
-  .testi-card:hover{box-shadow:0 8px 28px rgba(107,142,35,.15);transform:translateY(-3px)}
-  .testi-stars{color:#f5b800;font-size:15px;letter-spacing:2px}
-  .testi-text{font-size:14px;color:var(--muted);line-height:1.8;flex:1}
-  .testi-author{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:14px}
-  .testi-avatar{width:44px;height:44px;border-radius:50%;background:var(--green);color:#fff;font-weight:900;font-size:17px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-  .testi-name{font-weight:800;font-size:14px;color:#1a2406}
-  .testi-role{font-size:12px;color:var(--muted)}
-
-  /* ── Hamburger / Mobile menu ── */
-  .ham-btn{display:none;background:none;border:none;cursor:pointer;padding:6px;color:#cfd8a8;font-size:26px;line-height:1}
-  .mob-menu{display:none;position:fixed;inset:0;z-index:300;background:#1a2818;flex-direction:column;align-items:center;justify-content:center;gap:28px}
-  .mob-menu.open{display:flex}
-  .mob-menu a{font-size:22px;font-weight:800;color:#cfd8a8;text-decoration:none;transition:color .15s}
-  .mob-menu a:hover{color:var(--green-l)}
-  .mob-close{position:absolute;top:20px;left:20px;background:none;border:none;color:#cfd8a8;font-size:36px;cursor:pointer;line-height:1}
-  .mob-menu-cta{background:var(--green-l);color:#1a2406!important;padding:14px 36px;border-radius:10px;font-size:18px;font-weight:900;margin-top:8px}
-
-  /* ── Back to top ── */
-  .back-top{position:fixed;bottom:90px;left:24px;z-index:998;width:44px;height:44px;border-radius:50%;background:#1a2818;border:1.5px solid rgba(168,196,71,.3);color:var(--green-l);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;transform:translateY(10px)}
-  .back-top.show{opacity:1;pointer-events:auto;transform:translateY(0)}
-  .back-top:hover{background:#243d20}
-
-  /* ── Mobile sticky CTA bar ── */
-  .mob-cta-bar{display:none;position:fixed;bottom:0;right:0;left:0;z-index:990;background:#1a2818;border-top:1px solid rgba(168,196,71,.2);padding:10px 16px;gap:10px}
-  .mob-cta-bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:12px;border-radius:10px;font-weight:800;font-size:15px;text-decoration:none}
-  .mcta-call{background:var(--green-l);color:#1a2406}
-  .mcta-wa{background:#25d366;color:#fff}
-
-  @media(max-width:768px){
-    .ham-btn{display:flex}
-    .nav-links,.nav-cta{display:none!important}
-    .mob-cta-bar{display:flex}
-    .wa-float{bottom:24px!important;right:16px!important;left:auto!important}
-    .back-top{bottom:164px!important;left:16px!important}
-  }
-  @media(max-width:600px){
-    .steps{grid-template-columns:repeat(2,1fr);gap:24px}
-    .steps::before{display:none}
-    .testi-grid{grid-template-columns:1fr}
-  }
-
-  /* ── Urgency bar ── */
-  .urgency-bar{background:var(--green-d);color:#fff;text-align:center;padding:8px 48px;font-size:13px;position:relative;direction:rtl;line-height:1.4}
-  .urgency-btn{background:var(--green-l);color:#1a2406;border:none;padding:3px 12px;border-radius:4px;font-weight:800;cursor:pointer;font-family:inherit;font-size:13px;margin-right:8px;transition:background .15s}
-  .urgency-btn:hover{background:#b9d655}
-  .urgency-close{position:absolute;left:14px;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,.55);font-size:20px;cursor:pointer;line-height:1;padding:0}
-
-  /* ── Blog section ── */
-  .blog{padding:80px 0;background:#eef1e6}
-  .blog-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:36px}
-  .blog-head h2{font-size:30px;margin:0}
-  .blog-more{color:var(--green);font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap}
-  .blog-more:hover{color:var(--green-d)}
-  .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  .blog-card{background:#fff;border-radius:14px;border:1px solid var(--line);padding:24px 24px 20px;display:flex;flex-direction:column;gap:10px;transition:box-shadow .2s,transform .2s;cursor:pointer}
-  .blog-card:hover{box-shadow:0 8px 28px rgba(107,142,35,.15);transform:translateY(-3px)}
-  .blog-cat{font-size:11px;font-weight:800;color:var(--green);letter-spacing:.5px;text-transform:uppercase}
-  .blog-card h3{font-size:16px;font-weight:800;color:#1a2406;margin:0;line-height:1.4}
-  .blog-card p{font-size:13px;color:var(--muted);margin:0;line-height:1.7;flex:1}
-  .blog-read{font-size:13px;font-weight:700;color:var(--green);text-decoration:none;margin-top:4px}
-  .blog-read:hover{color:var(--green-d)}
-  @media(max-width:768px){.blog-grid{grid-template-columns:1fr}}
-
-  /* ── Page transition overlay ── */
-  #page-fade{position:fixed;inset:0;background:var(--bg);z-index:500;pointer-events:none;opacity:0;transition:opacity .22s ease}
-
-  /* ── Loader ── */
-  #loader{position:fixed;inset:0;z-index:9999;background:#1a2818;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;transition:opacity .55s ease}
-  #loader.out{opacity:0;pointer-events:none}
-  .loader-name{font-size:40px;font-weight:900;color:var(--green-l);letter-spacing:3px;animation:loader-pop .5s ease forwards}
-  .loader-sub{font-size:13px;color:#9aad7a;letter-spacing:1px}
-  .loader-bar{width:150px;height:3px;background:rgba(168,196,71,.2);border-radius:2px;overflow:hidden;margin-top:4px}
-  .loader-fill{height:100%;width:0;background:var(--green-l);animation:loader-progress 1.1s ease forwards}
-  @keyframes loader-pop{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
-  @keyframes loader-progress{from{width:0}to{width:100%}}
-
-  /* ── Fade-in on scroll ── */
-  .fade-in{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease}
-  .fade-in.visible{opacity:1;transform:translateY(0)}
-
-  /* ── Program card icon ── */
-  .prog-card-icon{font-size:38px;line-height:1;margin-bottom:10px;display:block}
-
-  /* ── WhatsApp float button ── */
-  .wa-float{
-    position:fixed;bottom:24px;right:24px;left:auto;z-index:999;
-    width:76px;height:76px;border-radius:50%;
-    background:#25d366;
-    display:flex;align-items:center;justify-content:center;
-    box-shadow:0 4px 20px rgba(37,211,102,.45);
-    text-decoration:none;font-size:40px;
-    transition:transform .2s,box-shadow .2s;
-    animation:wa-pulse 3s ease-in-out infinite;
-  }
-  .wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.6)}
-  @keyframes wa-pulse{
-    0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.45)}
-    50%{box-shadow:0 4px 28px rgba(37,211,102,.75),0 0 0 8px rgba(37,211,102,.1)}
-  }
-  .wa-float-tip{
-    position:absolute;bottom:calc(100% + 10px);left:0;
-    background:#1a2818;color:#fff;font-size:12px;font-weight:700;
-    white-space:nowrap;padding:5px 10px;border-radius:6px;
-    opacity:0;pointer-events:none;transition:opacity .2s;direction:rtl;
-  }
-  .wa-float:hover .wa-float-tip{opacity:1}
-
-  /* ══ Accessibility Widget ══ */
-  .a11y-widget{position:fixed;bottom:116px;left:24px;z-index:1000;direction:rtl}
-  @media(max-width:768px){.a11y-widget{bottom:90px;left:14px}}
-
-  .a11y-btn{
-    width:52px;height:52px;border-radius:50%;
-    background:#1a3a5c;color:#fff;
-    border:2px solid rgba(255,255,255,.3);
-    display:flex;align-items:center;justify-content:center;
-    cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.35);
-    transition:transform .2s,background .2s;
-  }
-  .a11y-btn:hover{background:#1e5799;transform:scale(1.08)}
-
-  .a11y-panel{
-    position:absolute;bottom:62px;left:0;
-    width:300px;background:#fff;border-radius:16px;
-    box-shadow:0 8px 40px rgba(0,0,0,.22);
-    overflow:hidden;direction:rtl;
-    font-family:"Heebo","Segoe UI",Arial,sans-serif;
-    color:#1a1a1a;
-  }
-  .a11y-panel-head{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:14px 16px 10px;border-bottom:1px solid #eee;
-  }
-  .a11y-panel-head span{font-weight:800;font-size:15px}
-  .a11y-reset{background:none;border:none;color:#888;font-size:13px;cursor:pointer;padding:4px 8px;border-radius:6px}
-  .a11y-reset:hover{background:#f0f0f0}
-  .a11y-close-btn{background:none;border:none;font-size:18px;cursor:pointer;color:#888;padding:2px 6px;line-height:1}
-  .a11y-close-btn:hover{color:#333}
-
-  .a11y-section{padding:12px 16px;border-bottom:1px solid #f0f0f0}
-  .a11y-sec-lbl{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-  .a11y-sec-lbl span{font-size:14px;font-weight:700;color:#333}
-
-  .a11y-slider-row{display:flex;align-items:center;gap:8px}
-  .a11y-sz-icon{font-size:12px;color:#888}
-  .a11y-sz-icon.lg{font-size:18px}
-  .a11y-slider-row input[type=range]{
-    flex:1;-webkit-appearance:none;height:4px;border-radius:2px;
-    background:linear-gradient(to left,#3b6fe0 var(--pct,50%),#ddd var(--pct,50%));
-    outline:none;cursor:pointer;
-  }
-  .a11y-slider-row input[type=range]::-webkit-slider-thumb{
-    -webkit-appearance:none;width:18px;height:18px;border-radius:50%;
-    background:#3b6fe0;box-shadow:0 1px 4px rgba(0,0,0,.25);
-  }
-  .a11y-sz-val{font-size:13px;color:#555;min-width:36px;text-align:center}
-
-  .a11y-grid4{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .a11y-mode{
-    border:1.5px solid #ddd;border-radius:10px;padding:8px 6px;
-    background:#fff;cursor:pointer;font-size:13px;font-weight:600;
-    color:#444;display:flex;align-items:center;justify-content:center;gap:5px;
-    transition:border-color .15s,background .15s;direction:rtl;
-  }
-  .a11y-mode.active{background:#3b6fe0;color:#fff;border-color:#3b6fe0}
-  .a11y-mode:hover:not(.active){border-color:#aaa;background:#f8f8f8}
-
-  .a11y-toggle-row{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:10px 16px;border-bottom:1px solid #f4f4f4;
-  }
-  .a11y-toggle-lbl{display:flex;align-items:center;gap:10px;font-size:14px;color:#333}
-  .a11y-toggle-ico{font-size:16px;width:24px;text-align:center}
-
-  .a11y-switch{
-    position:relative;width:44px;height:24px;border-radius:12px;
-    background:#ccc;border:none;cursor:pointer;transition:background .2s;flex-shrink:0;
-  }
-  .a11y-switch.on{background:#222}
-  .a11y-switch::after{
-    content:'';position:absolute;top:3px;right:3px;
-    width:18px;height:18px;border-radius:50%;
-    background:#fff;transition:right .2s;box-shadow:0 1px 3px rgba(0,0,0,.3);
-  }
-  .a11y-switch.on::after{right:calc(100% - 21px)}
-
-  .a11y-grid3{display:flex;gap:6px}
-  .a11y-grid3 .a11y-mode{flex:1;font-size:13px}
-
-  .a11y-footer{
-    padding:10px 16px;text-align:center;font-size:11px;color:#aaa;
-    background:#fafafa;border-top:1px solid #eee;
-  }
-
-  /* ── Body-level a11y overrides ── */
-  #a11y-wrap.a11y-invert{filter:invert(1) hue-rotate(180deg)}
-  #a11y-wrap.a11y-invert img,#a11y-wrap.a11y-invert video{filter:invert(1) hue-rotate(180deg)}
-  #a11y-wrap.a11y-high{filter:contrast(1.6) brightness(1.1)}
-  #a11y-wrap.a11y-gray{filter:grayscale(1)}
-  body.a11y-links a{text-decoration:underline!important;outline:2px solid #f5b800!important}
-  body.a11y-font *{font-family:Arial,sans-serif!important;letter-spacing:.03em}
-  body.a11y-noanim *{animation:none!important;transition:none!important}
-  body.a11y-sp1 p,body.a11y-sp1 li,body.a11y-sp1 h1,body.a11y-sp1 h2,body.a11y-sp1 h3,body.a11y-sp1 h4,body.a11y-sp1 a,body.a11y-sp1 button{letter-spacing:.08em!important;word-spacing:.25em!important;line-height:2!important}
-  body.a11y-sp2 p,body.a11y-sp2 li,body.a11y-sp2 h1,body.a11y-sp2 h2,body.a11y-sp2 h3,body.a11y-sp2 h4,body.a11y-sp2 a,body.a11y-sp2 button{letter-spacing:.15em!important;word-spacing:.5em!important;line-height:2.4!important}
-  .a11y-reader-bar{position:fixed;left:0;right:0;height:40px;background:rgba(255,255,0,.25);pointer-events:none;z-index:9998;display:none;transform:translateY(-50%)}
-
-  @media(max-width:900px){
-    .hero-body h1{font-size:34px}
-    .lead-card,.band-grid{grid-template-columns:1fr}
-    .strip-grid,.svc-grid,.why-points,.stats-grid{grid-template-columns:1fr}
-  }
-  @media(max-width:600px){
-    .hero-body h1{font-size:28px}
-    .lead-form{grid-template-columns:1fr}
-  }
-
-  /* ── Mobile enlargement ── */
-  @media(max-width:768px){
-    body{font-size:18px}
-    .container{padding:0 16px}
-
-    /* ── Hero: clean mobile layout ── */
     .hero{
-      padding:40px 0 60px;
-      min-height:540px;
-      justify-content:center;
+      padding:96px 0 74px;
+      display:grid;
+      grid-template-columns:1.18fr .82fr;
+      gap:52px;
+      align-items:center;
     }
-    .hero-body{
-      text-align:center;
-      max-width:100%;
-      padding:0 16px;
-    }
-    /* Hide topbar/logo inside hero on mobilealready shown in nav */
-    .topbar{display:none!important}
-    .hero-body h1{
-      font-size:46px!important;
-      line-height:1.12;
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:#1d4ed8;
+      background:rgba(37,99,235,.07);
+      border:1px solid rgba(37,99,235,.16);
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:800;
       margin-bottom:20px;
     }
-    .hero-body .sub{font-size:20px;margin-bottom:28px}
-    .hero-tag{font-size:17px;padding:9px 20px;margin-bottom:18px}
 
-    /* Buttons: full-width stacked */
-    .hero-ctas{
-      flex-direction:column;
+    .dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--success);
+      box-shadow:0 0 20px rgba(114,224,184,.8);
+    }
+
+    h1{
+      font-size:clamp(44px,6vw,74px);
+      line-height:1.03;
+      letter-spacing:-2.8px;
+      margin:0 0 22px;
+    }
+
+    .gradient{
+      background:linear-gradient(90deg,#0f172a 0%,#2563eb 60%,#60a5fa 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .hero p{
+      max-width:730px;
+      color:var(--muted);
+      font-size:19px;
+      margin:0 0 30px;
+    }
+
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
       gap:12px;
     }
-    .hero-ctas .btn{
-      width:100%;
-      font-size:20px;
-      padding:18px 24px;
-      text-align:center;
-      display:block;
-      box-sizing:border-box;
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      padding:13px 18px;
+      border-radius:13px;
+      font-weight:900;
+      border:1px solid var(--line);
     }
 
-    /* Nav */
-    .nav-logo{font-size:22px}
-    .ham-btn{font-size:30px}
-
-    /* Lead card */
-    .lead-card{padding:24px 16px;flex-direction:column}
-    .lead-card h2{font-size:24px}
-    .lead-card .sub{font-size:17px}
-    .lead-form{grid-template-columns:1fr}
-    .lead-form input,.modal input,.modal textarea{font-size:17px;padding:15px}
-    .lead-form button,.modal button[type=submit]{font-size:19px;padding:16px;width:100%}
-
-    /* Section headings */
-    .why h2,.services h2,.how h2,.testimonials h2,.blog-head h2,
-    .band h2,.cta-band h2{font-size:32px!important}
-    .why .lead-txt,.services .lead,.how .lead,.testimonials .lead{font-size:18px}
-
-    /* Stats: big and stacked */
-    .stats{flex-direction:column;gap:36px;padding:50px 0}
-    .stat .num{font-size:64px}
-    .stat .lbl{font-size:20px}
-
-    /* Steps */
-    .step-num{width:68px;height:68px;font-size:26px}
-    .step h4{font-size:20px}
-    .step p{font-size:16px}
-
-    /* Service cards */
-    .svc{padding:60px 20px 28px}
-    .svc h3{font-size:22px}
-    .svc p{font-size:16px}
-    .svc .more{font-size:17px;padding:13px 24px;display:block;text-align:center}
-    .svc .ico{width:72px;height:72px;top:-36px}
-
-    /* Why points */
-    .wp h3{font-size:20px}
-    .wp p{font-size:17px}
-
-    /* Testimonials */
-    .testi-text{font-size:17px}
-    .testi-name{font-size:17px}
-    .testi-role{font-size:15px}
-    .testi-stars{font-size:20px}
-
-    /* Mob CTA bar */
-    .mob-cta-bar a{font-size:18px;padding:15px}
-
-    /* Blog */
-    .blog-card h3{font-size:20px}
-    .blog-card p{font-size:16px}
-
-    /* Pillars / band */
-    .pillar{font-size:18px;padding:18px 16px}
-    .pillar .ico{width:52px;height:52px;font-size:22px}
-
-    /* Footer */
-    .rf-logo{font-size:22px}
-    .rf-nav a,.rf-contact li,.rf-copy p{font-size:16px}
-
-    /* FAQ */
-    .faq-q{font-size:18px;padding:16px 18px}
-    .faq-a{font-size:16px;padding:0 18px 16px}
-
-    /* Programs */
-    .prog-card h3{font-size:21px}
-    .prog-card p{font-size:16px}
-
-    /* About */
-    .ab-title{font-size:36px!important}
-    .ab-quote{font-size:18px}
-    .ab-feat p{font-size:16px}
-
-    /* Contact */
-    .contact-body{grid-template-columns:1fr}
-    #contact .contact-header h2{font-size:34px}
-
-    /* Mobile menu */
-    .mob-menu a{font-size:28px}
-    .mob-menu-cta{font-size:22px}
-  }
-
-  /* ══════════════════════════════════════
-     DIGITAL / FUTURISTIC UPGRADE LAYER
-  ══════════════════════════════════════ */
-
-  /* Google fontOrbitron for hero numbers */
-  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap');
-
-  /* ── Nav logo "Support" span ── */
-  .nl-s{
-    font-size:1em;
-    font-weight:800;
-    color:rgba(184,255,60,.7);
-    letter-spacing:.5px;
-  }
-
-  /* ── Unified page hero look (all inner pages) ── */
-  .ab-hero,
-  .prog-hero,
-  .static-hero,
-  #contact .contact-header{
-    position:relative;
-    overflow:hidden;
-    background:linear-gradient(160deg,#060e03 0%,#0d1c07 60%,#0a1804 100%)!important;
-    border-bottom:1px solid rgba(184,255,60,.15);
-  }
-  .ab-hero::before,
-  .prog-hero::before,
-  .static-hero::before,
-  #contact .contact-header::before{
-    content:'';
-    position:absolute;inset:0;pointer-events:none;
-    background:
-      repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(184,255,60,.025) 3px,rgba(184,255,60,.025) 4px),
-      repeating-linear-gradient(90deg,transparent,transparent 3px,rgba(184,255,60,.012) 3px,rgba(184,255,60,.012) 4px);
-    z-index:0;
-  }
-  .ab-hero>.container,
-  .prog-hero>.container,
-  .static-hero>.container,
-  #contact .contact-header>.container{position:relative;z-index:1}
-
-  /* neon glow on inner page h2 headings */
-  .ab-hero .ab-title,
-  .prog-hero h2,
-  .static-hero .ab-title,
-  #contact .contact-header h2{
-    text-shadow:0 0 30px rgba(184,255,60,.35),0 0 60px rgba(184,255,60,.15)!important;
-  }
-
-  /* ── Nav upgrade ── */
-  #mainNav{
-    background:rgba(10,18,7,.75)!important;
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
-    border-bottom:1px solid var(--glass-border)!important;
-    box-shadow:0 2px 24px rgba(0,0,0,.4);
-  }
-  .nav-logo{
-    background:linear-gradient(135deg,var(--neon),var(--green-l));
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-    background-clip:text;
-    filter:drop-shadow(0 0 8px var(--neon-glow));
-  }
-
-  /* ── Hero digital overlay ── */
-  .hero-overlay{
-    background:
-      linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(6,18,3,.78) 100%),
-      repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(184,255,60,.04) 40px),
-      repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(184,255,60,.04) 40px)!important;
-    background-size:100%,40px 40px,40px 40px!important;
-  }
-  .hero-tag{
-    background:rgba(184,255,60,.12)!important;
-    border:1px solid rgba(184,255,60,.5)!important;
-    color:var(--neon)!important;
-    box-shadow:0 0 18px rgba(184,255,60,.2);
-    letter-spacing:.5px;
-  }
-  .hero-body h1{
-    text-shadow:0 0 40px rgba(184,255,60,.15);
-  }
-  .hero-body h1 .accent{
-    background:linear-gradient(135deg,var(--neon),var(--green-l));
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-    background-clip:text;
-    filter:drop-shadow(0 0 12px var(--neon-glow));
-  }
-  .btn-primary{
-    background:linear-gradient(135deg,var(--neon),#7ec800)!important;
-    color:#0a1203!important;
-    box-shadow:0 4px 24px rgba(184,255,60,.4);
-    letter-spacing:.3px;
-  }
-  .btn-primary:hover{
-    box-shadow:0 6px 32px rgba(184,255,60,.65)!important;
-    transform:translateY(-2px);
-  }
-  .btn-ghost{
-    border:1.5px solid rgba(184,255,60,.5)!important;
-    color:var(--neon)!important;
-    box-shadow:0 0 16px rgba(184,255,60,.1);
-  }
-  .btn-ghost:hover{
-    background:rgba(184,255,60,.08)!important;
-    box-shadow:0 0 28px rgba(184,255,60,.25)!important;
-  }
-
-  /* ── Statsneon numbers ── */
-  .stats{background:linear-gradient(135deg,#0c1a07,#111f0a)!important}
-  .stat .num{
-    font-family:'Orbitron',monospace;
-    background:linear-gradient(135deg,var(--neon),var(--green-l));
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-    background-clip:text;
-    filter:drop-shadow(0 0 10px var(--neon-glow));
-    font-size:52px!important;
-  }
-  .stat .lbl{color:#9aad7a;font-size:15px;letter-spacing:.3px}
-  .stats-grid{border-top:1px solid rgba(184,255,60,.15)!important}
-
-  /* ── Service cardsglassmorphism ── */
-  .svc{
-    background:rgba(255,255,255,.96)!important;
-    border:1px solid var(--line)!important;
-    box-shadow:0 4px 24px rgba(107,142,35,.08);
-    transition:box-shadow .3s,transform .3s,border-color .3s!important;
-  }
-  .svc:hover{
-    border-color:rgba(184,255,60,.5)!important;
-    box-shadow:0 8px 40px rgba(184,255,60,.2)!important;
-    transform:translateY(-6px)!important;
-  }
-  .svc-red:hover{border-color:#e05252!important;box-shadow:0 8px 40px rgba(224,82,82,.18)!important}
-  .svc-blue:hover{border-color:#4c7ee0!important;box-shadow:0 8px 40px rgba(76,126,224,.18)!important}
-  .svc-grn:hover{border-color:var(--green)!important;box-shadow:0 8px 40px rgba(107,142,35,.2)!important}
-  .svc .more{
-    transition:box-shadow .2s,transform .2s!important;
-    font-weight:800!important;letter-spacing:.3px;
-  }
-  .svc .more:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.18)!important}
-
-  /* ── Why-us section ── */
-  .why{background:linear-gradient(180deg,#f0f2ec,#e8ecdf)!important}
-  .why h2 .accent{
-    background:linear-gradient(135deg,var(--green-d),var(--green-l));
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-    background-clip:text;
-  }
-  .wp{
-    border:1px solid transparent!important;
-    background:linear-gradient(#fff,#fff) padding-box,
-               linear-gradient(135deg,rgba(184,255,60,.25),rgba(107,142,35,.15)) border-box!important;
-    box-shadow:0 4px 20px rgba(107,142,35,.08);
-    transition:transform .25s,box-shadow .25s;
-  }
-  .wp:hover{transform:translateY(-4px);box-shadow:0 10px 32px rgba(107,142,35,.15)}
-  .wp .ico{font-size:36px!important}
-
-  /* ── Band / dark sections ── */
-  .band{
-    background:linear-gradient(135deg,#070f04,#0f1e09)!important;
-    position:relative;overflow:hidden;
-  }
-  .band::before{
-    content:'';position:absolute;inset:0;pointer-events:none;
-    background:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(184,255,60,.03) 60px),
-               repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(184,255,60,.03) 60px);
-    background-size:60px 60px;
-  }
-  .band .kicker{color:var(--neon)!important;letter-spacing:1px}
-  .pillar{
-    border:1px solid rgba(184,255,60,.15)!important;
-    background:rgba(184,255,60,.04)!important;
-    transition:border-color .2s,background .2s;
-  }
-  .pillar:hover{border-color:rgba(184,255,60,.35)!important;background:rgba(184,255,60,.08)!important}
-  .pillar .ico{background:linear-gradient(135deg,var(--neon),var(--green-l))!important;color:#0a1203!important}
-
-  /* ── CTA band ── */
-  .cta-band{
-    background:linear-gradient(135deg,#060e04,#0d1c08)!important;
-    border:1px solid rgba(184,255,60,.15);
-    box-shadow:0 0 80px rgba(184,255,60,.06),inset 0 1px 0 rgba(184,255,60,.1);
-    position:relative;overflow:hidden;
-  }
-  .cta-band::before{
-    content:'';position:absolute;inset:0;pointer-events:none;
-    background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(184,255,60,.08),transparent);
-  }
-
-  /* ── Testimonials ── */
-  .testi-card{
-    border:1px solid transparent!important;
-    background:linear-gradient(#fff,#fff) padding-box,
-               linear-gradient(135deg,rgba(184,255,60,.2),rgba(107,142,35,.1)) border-box!important;
-    transition:box-shadow .3s,transform .3s!important;
-  }
-  .testi-card:hover{
-    box-shadow:0 10px 40px rgba(107,142,35,.18)!important;
-    transform:translateY(-5px)!important;
-  }
-  .testi-stars{color:var(--neon)!important;font-size:16px!important}
-  .testi-avatar{
-    background:linear-gradient(135deg,var(--neon),var(--green-l))!important;
-    color:#0a1203!important;
-    box-shadow:0 0 12px var(--neon-glow);
-  }
-
-  /* ── How steps ── */
-  .step-num{
-    background:linear-gradient(135deg,var(--neon),var(--green-l))!important;
-    color:#0a1203!important;
-    box-shadow:0 4px 20px var(--neon-glow)!important;
-  }
-  .steps::before{
-    background:linear-gradient(to left,var(--neon),var(--green-l))!important;
-    box-shadow:0 0 12px rgba(184,255,60,.3);
-  }
-
-  /* ── Lead card ── */
-  .lead-card{
-    border:1px solid transparent!important;
-    background:linear-gradient(#fff,#fff) padding-box,
-               linear-gradient(135deg,rgba(184,255,60,.3),rgba(107,142,35,.15)) border-box!important;
-    box-shadow:0 20px 60px rgba(0,0,0,.12)!important;
-  }
-  .lead-form button,.lead-form input[type=submit]{
-    background:linear-gradient(135deg,var(--neon),#7ec800)!important;
-    color:#0a1203!important;
-    box-shadow:0 4px 20px rgba(184,255,60,.35);
-  }
-
-  /* ── Footer ── */
-  .rich-footer{
-    background:linear-gradient(180deg,#060e04,#040a03)!important;
-    border-top:1px solid rgba(184,255,60,.15)!important;
-  }
-  .rf-logo{
-    background:linear-gradient(135deg,var(--neon),var(--green-l));
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-    background-clip:text;filter:drop-shadow(0 0 6px var(--neon-glow));
-  }
-  .rf-bottom{background:rgba(184,255,60,.03);border-top:1px solid rgba(184,255,60,.08)!important}
-
-  /* ── Modal ── */
-  .modal{
-    border:1px solid rgba(184,255,60,.2);
-    box-shadow:0 20px 80px rgba(0,0,0,.4),0 0 40px rgba(184,255,60,.06);
-  }
-  .modal button[type=submit]{
-    background:linear-gradient(135deg,var(--neon),#7ec800)!important;
-    color:#0a1203!important;
-    box-shadow:0 4px 20px rgba(184,255,60,.35);
-  }
-  .modal h2{
-    background:linear-gradient(135deg,#1a2406,var(--green-d));
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-    background-clip:text;
-  }
-
-  /* ── Mob CTA bar ── */
-  .mob-cta-bar{
-    background:rgba(6,14,4,.9)!important;
-    backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-    border-top:1px solid rgba(184,255,60,.2)!important;
-  }
-  .mcta-call{
-    background:linear-gradient(135deg,var(--neon),#7ec800)!important;
-    color:#0a1203!important;
-    box-shadow:0 0 16px rgba(184,255,60,.3);
-  }
-
-  /* ── Blog cards ── */
-  .blog{background:linear-gradient(135deg,#eef1e6,#e8ecdf)!important}
-  .blog-card{
-    border:1px solid transparent!important;
-    background:linear-gradient(#fff,#fff) padding-box,
-               linear-gradient(135deg,rgba(184,255,60,.2),rgba(107,142,35,.1)) border-box!important;
-    transition:box-shadow .3s,transform .3s!important;
-  }
-  .blog-card:hover{
-    box-shadow:0 10px 36px rgba(107,142,35,.18)!important;
-    transform:translateY(-5px)!important;
-  }
-  .blog-cat{color:var(--neon)!important}
-
-  /* ── Urgency bar ── */
-  .urgency-bar{
-    background:linear-gradient(135deg,#0d1e07,#162808)!important;
-    border-bottom:1px solid rgba(184,255,60,.2);
-    box-shadow:0 2px 20px rgba(0,0,0,.3);
-  }
-  .urgency-btn{
-    background:linear-gradient(135deg,var(--neon),#7ec800)!important;
-    color:#0a1203!important;
-    box-shadow:0 0 12px rgba(184,255,60,.3);
-  }
-
-  /* ── Scroll fade animation ── */
-  .fade-in{transition:opacity .65s ease,transform .65s ease!important}
-
-  /* ── Selection color ── */
-  ::selection{background:rgba(184,255,60,.3);color:#0a1203}
-</style>
-<title>יועץ צבאי | עריקות | פטור משירות | ירידה מקרבי</title>
-
-<!-- LOADER -->
-<div id="a11y-wrap">
-<div id="loader">
-  <div class="loader-bar"><div class="loader-fill"></div></div>
-</div>
-
-<!-- PAGE TRANSITION OVERLAY -->
-<div id="page-fade"></div>
-
-<!-- URGENCY BAR -->
-<a href="#main-content" class="skip-nav">דלג לתוכן הראשי</a>
-<div class="urgency-bar" id="urgencyBar" role="banner">
-  ⏰ <strong>השבוע נותרו 3 מקומות</strong> לייעוץ ראשוני חינם —
-  <button class="urgency-btn" onclick="openModal()">הזמינו עכשיו</button>
-  <button class="urgency-close" onclick="document.getElementById('urgencyBar').style.display='none'" aria-label="סגור">×</button>
-</div>
-
-<!-- NAV -->
-<nav id="mainNav" aria-label="ניווט ראשי">
-  <div class="nav-inner">
-    <div class="nav-logo">Amnon<span class="nl-s"> Support</span></div>
-    <ul class="nav-links">
-      <li><a href="#" data-page="home" onclick="event.preventDefault();showPage('home')">דף הבית</a></li>
-<li><a href="#" data-page="programs" onclick="event.preventDefault();showPage('programs')">תוכניות ושירותים</a></li>
-      <li><a href="#" data-page="faq" onclick="event.preventDefault();showPage('faq')">שאלות נפוצות</a></li>
-      <li><a href="#" data-page="about" onclick="event.preventDefault();showPage('about')">אודות</a></li>
-    </ul>
-    <a href="#" class="nav-cta" data-page="contact" onclick="event.preventDefault();showPage('contact')">צור קשר</a>
-    <button class="ham-btn" onclick="openMobMenu()" aria-label="תפריט">☰</button>
-  </div>
-</nav>
-
-<!-- MOBILE MENU -->
-<div class="mob-menu" id="mobMenu">
-  <button class="mob-close" onclick="closeMobMenu()" aria-label="סגור תפריט">×</button>
-  <a href="#" onclick="closeMobMenu();showPage('home')">דף הבית</a>
-  <a href="#" onclick="closeMobMenu();showPage('programs')">תוכניות ושירותים</a>
-  <a href="#" onclick="closeMobMenu();showPage('faq')">שאלות נפוצות</a>
-  <a href="#" onclick="closeMobMenu();showPage('about')">אודות</a>
-  <a href="#" class="mob-menu-cta" onclick="closeMobMenu();showPage('contact')">צור קשר</a>
-</div>
-
-<style>
-  #mainNav{
-    position:sticky;top:0;z-index:200;
-    background:#1a2818;
-    border-bottom:1px solid rgba(168,196,71,.2);
-    direction:rtl;
-  }
-  .nav-inner{
-    max-width:1200px;margin:0 auto;
-    display:flex;align-items:center;justify-content:space-between;
-    padding:0 24px;height:56px;gap:16px;
-  }
-  .nav-logo{font-weight:800;font-size:18px;color:var(--green-l);white-space:nowrap}
-  .nav-links{
-    display:flex;list-style:none;margin:0;padding:0;gap:4px;flex:1;justify-content:center;
-  }
-  .nav-links > li{position:relative}
-  .nav-links > li > a{
-    display:flex;align-items:center;gap:4px;
-    color:#cfd8a8;text-decoration:none;font-size:14px;font-weight:600;
-    padding:6px 12px;border-radius:6px;white-space:nowrap;
-    transition:background .2s,color .2s;
-  }
-  .nav-links > li > a:hover,
-  .nav-links > li.open > a{background:rgba(168,196,71,.12);color:#fff}
-  .arr{font-size:10px;transition:transform .2s}
-  .nav-links > li.open .arr{transform:rotate(180deg)}
-  .dropdown{
-    display:none;position:absolute;top:calc(100% + 6px);right:0;
-    background:#1e2f18;border:1px solid rgba(168,196,71,.2);
-    border-radius:8px;padding:6px 0;min-width:160px;
-    box-shadow:0 8px 24px rgba(0,0,0,.4);list-style:none;margin:0;
-  }
-  .has-drop.open .dropdown{display:block}
-  .dropdown li a{
-    display:block;padding:9px 16px;color:#cfd8a8;text-decoration:none;font-size:14px;
-    transition:background .15s;
-  }
-  .dropdown li a:hover{background:rgba(168,196,71,.1);color:#fff}
-  .nav-cta{
-    background:var(--green-l);color:#1a2406;
-    font-weight:800;font-size:14px;
-    padding:8px 18px;border-radius:6px;text-decoration:none;white-space:nowrap;
-    transition:background .2s;
-  }
-  .nav-cta:hover{background:#b9d655}
-
-  /* ── Rich Footer ── */
-  .rich-footer{
-    background:#111d10;
-    color:#cfd8a8;
-    border-top:1px solid rgba(168,196,71,.18);
-    font-size:14px;
-    direction:rtl;
-  }
-  .rf-inner{
-    max-width:1200px;margin:0 auto;
-    display:flex;gap:48px;flex-wrap:wrap;
-    padding:56px 24px 40px;
-    align-items:flex-start;
-  }
-  .rf-brand{flex:0 0 260px;min-width:200px}
-  .rf-logo{font-size:22px;font-weight:900;color:var(--green-l);margin-bottom:12px}
-  .rf-tagline{font-size:13px;line-height:1.7;color:#9aad7a;margin:0 0 18px}
-  .rf-contact{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
-  .rf-contact a,.rf-contact span{
-    color:#cfd8a8;text-decoration:none;font-size:13px;font-weight:600;
-    display:flex;align-items:center;gap:8px;
-  }
-  .rf-contact a:hover{color:var(--green-l)}
-  .rf-contact-icon{
-    width:28px;height:28px;border-radius:6px;
-    background:rgba(168,196,71,.12);
-    display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;
-  }
-  .rf-trust{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
-  .rf-badge{
-    font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;
-    border:1px solid rgba(168,196,71,.3);color:#a8c447;
-  }
-  .rf-cols{flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;min-width:0}
-  .rf-col h4{
-    font-size:13px;font-weight:800;color:#fff;letter-spacing:.5px;
-    margin:0 0 14px;padding-bottom:10px;border-bottom:1px solid rgba(168,196,71,.15);
-  }
-  .rf-col ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
-  .rf-col ul li a{
-    color:#9aad7a;text-decoration:none;font-size:13px;
-    transition:color .15s;
-  }
-  .rf-col ul li a:hover{color:var(--green-l)}
-  .rf-bottom{
-    border-top:1px solid rgba(168,196,71,.1);
-    text-align:center;padding:16px 24px;
-    font-size:12px;color:#6a7f5a;direction:rtl;
-  }
-  @media(max-width:900px){
-    .rf-cols{grid-template-columns:repeat(2,1fr)}
-    .rf-brand{flex:1 1 100%}
-  }
-  @media(max-width:500px){.rf-cols{grid-template-columns:1fr 1fr}}
-</style>
-
-<script>
-// ─── Page routing with fade transition ───
-function showPage(name){
-  const fade = document.getElementById('page-fade');
-  fade.style.opacity = '1';
-  fade.style.pointerEvents = 'auto';
-  setTimeout(()=>{
-    ['home','about','contact','programs','faq','terms','privacy','accessibility'].forEach(p=>{
-      const el = document.getElementById('page-'+p);
-      if(el) el.style.display = p===name ? '' : 'none';
-    });
-    const testiEl  = document.querySelector('.testimonials');
-    const footerEl = document.querySelector('body > footer');
-    if(testiEl)  testiEl.style.display  = name==='home' ? '' : 'none';
-    if(footerEl) footerEl.style.display = name==='home' ? '' : 'none';
-    document.querySelectorAll('.nav-links a[data-page]').forEach(a=>{
-      a.style.background = a.dataset.page===name ? 'rgba(168,196,71,.18)' : '';
-      a.style.color      = a.dataset.page===name ? '#fff' : '';
-    });
-    window.scrollTo(0,0);
-    fade.style.opacity = '0';
-    fade.style.pointerEvents = 'none';
-  }, 220);
-}
-
-// ─── Dropdown toggles ───
-document.querySelectorAll('.has-drop > a').forEach(a=>{
-  a.addEventListener('click',e=>{
-    e.preventDefault();
-    const li=a.parentElement;
-    const wasOpen=li.classList.contains('open');
-    document.querySelectorAll('.has-drop').forEach(el=>el.classList.remove('open'));
-    if(!wasOpen)li.classList.add('open');
-  });
-});
-document.addEventListener('click',e=>{
-  if(!e.target.closest('.has-drop'))
-    document.querySelectorAll('.has-drop').forEach(el=>el.classList.remove('open'));
-});
-
-// ─── Hero slideshow ───
-window.addEventListener('DOMContentLoaded', function(){
-  const slides = document.querySelectorAll('.hero-slide');
-  if(!slides.length) return;
-  let cur = 0;
-  setInterval(function(){
-    slides[cur].classList.remove('active');
-    cur = (cur + 1) % slides.length;
-    slides[cur].classList.add('active');
-  }, 5000);
-});
-
-// ─── Init ───
-showPage('home');
-
-// ══ Accessibility Widget ══
-function toggleA11yPanel(){
-  const panel = document.getElementById('a11yPanel');
-  const btn   = document.getElementById('a11yToggleBtn');
-  const open  = panel.style.display === 'none';
-  panel.style.display = open ? '' : 'none';
-  btn.setAttribute('aria-expanded', open);
-}
-document.addEventListener('click', function(e){
-  const w = document.getElementById('a11yWidget');
-  if(w && !w.contains(e.target)){
-    document.getElementById('a11yPanel').style.display = 'none';
-    document.getElementById('a11yToggleBtn').setAttribute('aria-expanded','false');
-  }
-});
-
-function setA11yFontSize(v){
-  const wrap = document.getElementById('a11y-wrap');
-  if(wrap) wrap.style.zoom = v/100;
-  document.getElementById('a11ySzVal').textContent = v + '%';
-  const slider = document.getElementById('a11yFontSlider');
-  const pct = ((v - 80) / (200 - 80)) * 100;
-  slider.style.setProperty('--pct', pct + '%');
-}
-
-const contrastClasses = ['a11y-invert','a11y-high','a11y-gray'];
-function setA11yContrast(mode){
-  const wrap = document.getElementById('a11y-wrap');
-  if(wrap) wrap.classList.remove(...contrastClasses);
-  if(mode === 'invert' && wrap) wrap.classList.add('a11y-invert');
-  if(mode === 'high'   && wrap) wrap.classList.add('a11y-high');
-  if(mode === 'gray'   && wrap) wrap.classList.add('a11y-gray');
-  ['normal','invert','high','gray'].forEach(m=>{
-    const el = document.getElementById('cm-'+m);
-    if(el) el.classList.toggle('active', m === mode);
-  });
-}
-
-const a11yState = {};
-function toggleA11y(key, cls, btn){
-  a11yState[key] = !a11yState[key];
-  btn.classList.toggle('on', a11yState[key]);
-  btn.setAttribute('aria-checked', a11yState[key]);
-  if(cls) document.body.classList.toggle(cls, a11yState[key]);
-  if(key === 'reader'){
-    const bar = document.getElementById('a11yReaderBar');
-    if(a11yState[key]){
-      bar.style.display = 'block';
-      document.addEventListener('mousemove', moveReaderBar);
-    } else {
-      bar.style.display = 'none';
-      document.removeEventListener('mousemove', moveReaderBar);
+    .btn-primary{
+      background:linear-gradient(135deg,var(--accent),#1d4ed8);
+      color:#fff;
+      border:none;
     }
-  }
-}
-function moveReaderBar(e){
-  document.getElementById('a11yReaderBar').style.top = e.clientY + 'px';
-}
 
-const spacingClasses = ['a11y-sp1','a11y-sp2'];
-function setA11ySpacing(mode){
-  document.body.classList.remove(...spacingClasses);
-  if(mode === 'med')  document.body.classList.add('a11y-sp1');
-  if(mode === 'wide') document.body.classList.add('a11y-sp2');
-  ['normal','med','wide'].forEach(m=>{
-    const el = document.getElementById('sp-'+m);
-    if(el) el.classList.toggle('active', m === mode);
-  });
-}
+    .btn-secondary{background:rgba(255,255,255,.04)}
 
-function resetA11y(){
-  const wrap = document.getElementById('a11y-wrap');
-  if(wrap){ wrap.classList.remove(...contrastClasses); wrap.style.zoom = ''; }
-  document.body.classList.remove(...spacingClasses,'a11y-links','a11y-font','a11y-noanim');
-  document.getElementById('a11yFontSlider').value = 100;
-  setA11yFontSize(100);
-  setA11yContrast('normal');
-  setA11ySpacing('normal');
-  ['links','font','anim','reader'].forEach(k=>{
-    a11yState[k] = false;
-    const sw = document.getElementById('sw-'+k);
-    if(sw){ sw.classList.remove('on'); sw.setAttribute('aria-checked','false'); }
-  });
-  const bar = document.getElementById('a11yReaderBar');
-  if(bar) bar.style.display='none';
-  document.removeEventListener('mousemove', moveReaderBar);
-}
-</script>
+    .hero-card{
+      border:1px solid var(--line);
+      background:#ffffff;
+      border-radius:24px;
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
 
-<div id="page-home">
-<!-- HERO -->
-<section class="hero" id="main-content" aria-label="תוכן ראשי">
-  <!-- SLIDESHOW IMAGES -->
-  <div class="hero-slides">
-    <!-- חיילים במדברגוף + כתפיים גלויים -->
-    <div class="hero-slide active" style="background-image:url('img1.jpg');background-position:center 78%;background-size:120%"></div>
-    <!-- חיילים במדברגוף + כתפיים גלויים -->
-    <div class="hero-slide" style="background-image:url('img2.png');background-position:center 65%;background-size:120%"></div>
-    <!-- חיילים בשדהגוף + ראש גלויים -->
-    <div class="hero-slide" style="background-image:url('img3.png');background-position:center 60%;background-size:120%"></div>
-  </div>
-  <div class="hero-overlay"></div>
-  <div class="container">
-    <div class="topbar">
-      <div></div>
-      <div class="logo">משרד ייעוץ<small>דיני צבא | מענה אישי | מקצועיות</small></div>
+    .mini-window{
+      background:#ffffff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      overflow:hidden;
+    }
+
+    .window-top{
+      display:flex;
+      gap:7px;
+      padding:14px 16px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .window-top span{
+      width:9px;height:9px;border-radius:50%;
+      background:rgba(15,23,42,.20);
+    }
+
+    .window-body{padding:26px}
+
+    .stat{
+      background:linear-gradient(180deg,#ffffff,#f8fafc);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      margin-bottom:13px;
+    }
+
+    .stat strong{display:block;font-size:26px;margin-bottom:3px}
+    .stat span{color:var(--muted);font-size:13px}
+
+    section{padding:72px 0}
+    .section-head{max-width:760px;margin-bottom:32px}
+    .section-head h2{
+      font-size:clamp(32px,4vw,48px);
+      line-height:1.1;
+      letter-spacing:-1.6px;
+      margin:0 0 12px;
+    }
+    .section-head p{color:var(--muted);font-size:17px;margin:0}
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:22px;
+    }
+
+    .card{
+      background:#ffffff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:26px;
+      box-shadow:0 14px 40px rgba(15,23,42,.06);
+    }
+
+    .icon{
+      width:46px;height:46px;border-radius:14px;
+      display:grid;place-items:center;
+      background:rgba(37,99,235,.08);
+      border:1px solid rgba(37,99,235,.14);
+      margin-bottom:18px;
+      font-weight:900;
+      color:#2563eb;
+    }
+
+    .card h3{margin:0 0 9px;font-size:20px}
+    .card p{margin:0;color:var(--muted)}
+
+    .about{
+      display:grid;
+      grid-template-columns:.85fr 1.15fr;
+      gap:34px;
+      align-items:start;
+    }
+
+    .company-panel{
+      padding:30px;
+      border-radius:24px;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg,#ffffff,#f8fafc);
+    }
+
+    .company-row{
+      padding:15px 0;
+      border-bottom:1px solid var(--line);
+    }
+    .company-row:last-child{border-bottom:0}
+    .company-row small{
+      display:block;color:var(--muted);font-weight:800;margin-bottom:3px
+    }
+    .company-row strong{font-size:17px}
+
+    .legal-tabs{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+    }
+
+    details{
+      background:#ffffff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:20px 22px;
+    }
+
+    summary{
+      cursor:pointer;
+      font-size:19px;
+      font-weight:900;
+    }
+
+    details p,details li{color:#d7e1ef;font-size:14px}
+    details h4{margin:24px 0 8px}
+
+    .contact{
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:38px;
+      background:
+        radial-gradient(circle at 90% 10%,rgba(37,99,235,.10),transparent 26%),
+        #ffffff;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:30px;
+    }
+
+    .contact h2{margin:0 0 10px;font-size:36px}
+    .contact p{margin:0;color:var(--muted)}
+
+    footer{
+      padding:34px 0 44px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .footer-links{display:flex;gap:18px;flex-wrap:wrap}
+    .footer-links a{text-decoration:none;color:var(--muted)}
+
+    @media(max-width:900px){
+      nav{display:none}
+      .hero,.about{grid-template-columns:1fr}
+      .grid-3,.grid-2,.legal-tabs{grid-template-columns:1fr}
+      .hero{padding-top:64px}
+      .contact{align-items:flex-start;flex-direction:column}
+      h1{letter-spacing:-1.6px}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="BUBBLE BOOM LTD home">
+        <div class="brand-mark">BB</div>
+        <div class="brand-copy">
+          BUBBLE BOOM LTD
+          <small>Apps • Games • Digital Experiences</small>
+        </div>
+      </a>
+
+      <nav>
+        <a href="#about">About</a>
+        <a href="#work">What We Do</a>
+        <a href="#legal">Legal</a>
+        <a class="nav-cta" href="#contact">Contact</a>
+      </nav>
     </div>
-    <div class="hero-body">
-      <div class="hero-tag">ייעוץ ראשוני ללא עלות</div>
-      <h1>עריקות, פטור משירות<br><span class="accent">וירידה מקרבי</span> אנחנו הפתרון</h1>
-      <p class="sub">מאות תיקים שהסתיימו בהצלחה. אנחנו כאן לעמוד לצידכם מול המערכת הצבאית, <strong>עד שתגיעו לתוצאה הרצויה.</strong></p>
-      <div class="hero-ctas">
-        <button class="btn btn-primary" onclick="openModal()">לשיחת ייעוץ ללא עלות</button>
-        <a class="btn btn-ghost" href="#services">במה אנחנו יכולים לעזור?</a>
-      </div>
-    </div>
-  </div>
-</section>
+  </header>
 
-<!-- LEAD CARD -->
-<div class="lead-wrap">
-  <div class="lead-card">
-    <div>
-      <h2>עם הצבא לא מתמודדים לבד!</h2>
-      <p class="sub">לשיחת ייעוץ, השאירו פרטים ונחזור אליכם.</p>
-    </div>
-    <form class="lead-form" action="https://formsubmit.co/rondarkon@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="פנייה חדשה מהאתרAmnon Support">
-      <input type="hidden" name="_next" value="https://pturmitzahal.online">
-      <input type="hidden" name="_captcha" value="false">
-      <input name="name" placeholder="מה השם שלך?" required maxlength="80">
-      <input name="phone" placeholder="מה הטלפון שלך?" required maxlength="20">
-      <button type="submit">אני צריך עזרה!</button>
-    </form>
-  </div>
-</div>
+  <main id="top">
+    <div class="wrap">
+      <section class="hero">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Professional mobile software studio</div>
+          <h1>We build <span class="gradient">mobile apps & games</span> with a professional standard.</h1>
+          <p>
+            BUBBLE BOOM LTD creates and publishes mobile apps and games with a focus on smooth performance, engaging design, intuitive experiences, and reliable products for modern mobile users.
+          </p>
 
-<!-- 3 SERVICES STRIP -->
-<section class="strip">
-  <div class="container">
-    <div class="strip-grid">
-      <div class="strip-item"><div class="check">✓</div>ליווי וייצוג עריקים ומשתמטים</div>
-      <div class="strip-item"><div class="check">✓</div>פטור משירות צבאי</div>
-      <div class="strip-item"><div class="check">✓</div>ירידה משירות קרבי</div>
-    </div>
-  </div>
-</section>
+          <div class="actions">
+            <a class="btn btn-primary" href="#work">View our services</a>
+            <a class="btn btn-secondary" href="mailto:nisim5641@gmail.com">Contact us</a>
+          </div>
+        </div>
 
-<!-- WHY US -->
-<section class="why">
-  <div class="container">
-    <h2>כשאתם זקוקים למישהו שיילחם עבורכם, <span class="accent">אנחנו הכתובת.</span></h2>
-    <p class="lead-txt">המערכת הצבאית יכולה להרגיש כמו מבוך. תחושות של חוסר אונים, תסכול ובדידות, הן אמיתיות. אבל מהרגע שפניתם אלינו, יש פתרון.</p>
-    <p>אם הסתבכתם בעריקות, צריכים פטור משירות צבאי, או רוצים לרדת מתפקיד קרבי, אתם לא לבד. בדיוק בשביל זה אנחנו כאן.</p>
-    <div class="why-points">
-      <div class="wp"><div class="ico">⚡</div><h3>מענה מהיר</h3><p>חוזרים אליכם תוך שעות, כי בענייני צבא כל יום חשוב</p></div>
-      <div class="wp"><div class="ico">🛡️</div><h3>ניסיון מוכח</h3><p>שנים של עבודה בדיוק בתיקים הללו: עריקות, פטור, ירידה מקרבי</p></div>
-      <div class="wp"><div class="ico">🤝</div><h3>ליווי אישי</h3><p>לא עוד תחושה של בורג קטן, מלווים אתכם צעד אחר צעד עד לתוצאה</p></div>
-    </div>
-  </div>
-</section>
+        <div class="hero-card" aria-label="Company overview">
+          <div class="mini-window">
+            <div class="window-top"><span></span><span></span><span></span></div>
+            <div class="window-body">
+              <div class="stat">
+                <strong>Mobile Apps</strong>
+                <span>Development and publishing</span>
+              </div>
+              <div class="stat">
+                <strong>Mobile Games</strong>
+                <span>Entertainment-focused experiences</span>
+              </div>
+              <div class="stat">
+                <strong>Garson_Dev</strong>
+                <span>Google Play publisher identity</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<!-- STATS -->
-<section class="stats">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat"><div class="num">6</div><div class="lbl">שנות ניסיון</div></div>
-      <div class="stat"><div class="num">+1,500</div><div class="lbl">לקוחות שעזרנו להם</div></div>
-      <div class="stat"><div class="num">+97%</div><div class="lbl">אחוזי הצלחה</div></div>
-    </div>
-  </div>
-</section>
+      <section id="about">
+        <div class="about">
+          <div class="company-panel">
+            <div class="company-row">
+              <small>Company</small>
+              <strong>BUBBLE BOOM LTD</strong>
+            </div>
+            <div class="company-row">
+              <small>Field</small>
+              <strong>Independent mobile app & game studio</strong>
+            </div>
+            <div class="company-row">
+              <small>Google Play Publisher</small>
+              <strong>Garson_Dev</strong>
+            </div>
+            <div class="company-row">
+              <small>Contact</small>
+              <strong>nisim5641@gmail.com</strong>
+            </div>
+          </div>
 
-<!-- HOW IT WORKS -->
-<section class="how">
-  <div class="container">
-    <h2>איך זה <span class="accent">עובד?</span></h2>
-    <p class="lead">תהליך פשוט, מהיר ומקצועי, מהפנייה הראשונה ועד לתוצאה.</p>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h4>שיחת ייעוץ ראשונית</h4>
-        <p>פונים אלינו ומקבלים שיחה ראשונה ללא עלות וללא התחייבות</p>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h4>בדיקת המקרה</h4>
-        <p>אנחנו בוחנים את הפרטים ומסבירים את כל האפשרויות הקיימות</p>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h4>ניהול ההליך</h4>
-        <p>מטפלים בבירוקרטיה, ממלאים טפסים ומנהלים מול הצבא</p>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <h4>תוצאה!</h4>
-        <p>מגיעים לתוצאה הרצויה ומלווים אתכם גם לאחר מכן</p>
-      </div>
-    </div>
-  </div>
-</section>
+          <div>
+            <div class="section-head">
+              <h2>About Bubble Boom</h2>
+              <p>
+                We are an independent digital studio focused on building mobile products from idea to release. We combine product thinking, clean design, technical reliability, and ongoing improvement to create apps and games that feel simple, polished, and enjoyable.
+              </p>
+            </div>
 
-<!-- BAND -->
-<section class="band">
-  <div class="container">
-    <div class="band-grid">
+            <div class="grid-2">
+              <div class="card">
+                <div class="icon">01</div>
+                <h3>Thoughtful product development</h3>
+                <p>We turn focused ideas into polished mobile products with intuitive interfaces and dependable functionality.</p>
+              </div>
+              <div class="card">
+                <div class="icon">02</div>
+                <h3>Publishing & optimization</h3>
+                <p>We prepare, publish, maintain, and continuously improve products for leading mobile platforms.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="work">
+        <div class="section-head">
+          <h2>What we build</h2>
+          <p>
+            From the first concept to long-term support, we manage the product lifecycle with attention to quality, usability, performance, and platform requirements.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon">A</div>
+            <h3>Mobile applications</h3>
+            <p>Useful, accessible apps designed around clear flows, responsive interfaces, and everyday usability.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">G</div>
+            <h3>Mobile games</h3>
+            <p>Casual and engaging game experiences designed to be easy to understand and enjoyable to play.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">S</div>
+            <h3>Updates & support</h3>
+            <p>Regular updates, compatibility work, technical maintenance, performance improvements, and platform-compliance support.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="legal">
+        <div class="section-head">
+          <h2>Privacy, terms & transparency</h2>
+          <p>
+            We believe users and platform partners should be able to understand how our products operate, what services they may use, and the terms that apply.
+          </p>
+        </div>
+
+        <div class="legal-tabs">
+          <details>
+            <summary>Privacy Policy</summary>
+            <p><strong>Last Updated: April 4, 2026</strong></p>
+
+            <p>
+              This Privacy Policy applies to mobile games and applications developed and
+              published by BUBBLE BOOM LTD under the Google Play Console name Garson_Dev.
+            </p>
+
+            <h4>Information Collection</h4>
+            <p>
+              We do not collect personal data directly from users through manual registration
+              forms or account creation. However, our applications may use third-party SDKs
+              and advertising services, including Google AdMob, which may automatically collect
+              certain technical and advertising-related information.
+            </p>
+
+            <p>Our games do not require users to directly submit personal details such as:</p>
+            <ul>
+              <li>Name</li>
+              <li>Email address</li>
+              <li>Phone number</li>
+              <li>Home address</li>
+            </ul>
+
+            <h4>Advertising & SDK Usage</h4>
+            <p>
+              Our applications may use third-party SDKs and advertising services to display ads,
+              support app functionality, and improve monetization performance.
+            </p>
+            <ul>
+              <li>Google AdMob</li>
+              <li>Google Mobile Ads SDK</li>
+            </ul>
+
+            <p>These services may automatically collect information including:</p>
+            <ul>
+              <li>Device identifiers</li>
+              <li>Advertising ID</li>
+              <li>IP address</li>
+              <li>Approximate location</li>
+              <li>App interactions</li>
+              <li>Ad performance and engagement data</li>
+              <li>Technical device information</li>
+            </ul>
+
+            <h4>Third-Party Services</h4>
+            <p>
+              Google AdMob and related Google services may process information in accordance with
+              their own privacy policies and terms. We do not fully control how third-party SDK
+              providers collect, use, or process data once their services are integrated.
+            </p>
+
+            <h4>Children's Privacy</h4>
+            <p>
+              Our apps are not intended to knowingly collect personal information directly from
+              children. Third-party SDKs may process limited technical data automatically where
+              integrated into a specific application.
+            </p>
+
+            <h4>Changes</h4>
+            <p>We may update this Privacy Policy from time to time. Updated versions will be published on this website.</p>
+
+            <h4>Contact</h4>
+            <p>
+              BUBBLE BOOM LTD<br />
+              Google Play Console: Garson_Dev<br />
+              Email: nisim5641@gmail.com
+            </p>
+          </details>
+
+          <details>
+            <summary>Terms of Use</summary>
+            <p><strong>Effective Date: April 4, 2026</strong></p>
+
+            <p>
+              These Terms govern access to and use of mobile games, applications, and related
+              services published by BUBBLE BOOM LTD under the Google Play Console name Garson_Dev.
+            </p>
+
+            <h4>1. Eligibility and Acceptance</h4>
+            <p>By using our products, you agree to comply with these Terms and applicable laws.</p>
+
+            <h4>2. License</h4>
+            <p>
+              Subject to these Terms, users receive a limited, non-exclusive, non-transferable,
+              revocable license to use our mobile products for personal, non-commercial purposes.
+            </p>
+
+            <h4>3. Restrictions</h4>
+            <ul>
+              <li>Do not copy, reproduce, distribute, or publicly exploit our products except as permitted by law.</li>
+              <li>Do not reverse engineer, decompile, modify, or create derivative works except where mandatory law allows it.</li>
+              <li>Do not use our products in a fraudulent, unlawful, abusive, or harmful manner.</li>
+              <li>Do not interfere with the normal operation, security, or integrity of our products or related services.</li>
+            </ul>
+
+            <h4>4. Intellectual Property</h4>
+            <p>
+              Content, software, branding, game designs, graphics, interfaces, text, logos, and
+              related materials associated with our products are owned by or licensed to
+              BUBBLE BOOM LTD and are protected by applicable intellectual property laws.
+            </p>
+
+            <h4>5. Third-Party Platforms and Services</h4>
+            <p>
+              Our products may be distributed through Google Play or other third-party platforms
+              and may integrate services such as advertising SDKs including Google AdMob.
+            </p>
+
+            <h4>6. Updates and Availability</h4>
+            <p>
+              We may modify, suspend, update, or discontinue a product, feature, or functionality
+              to the extent permitted by applicable law.
+            </p>
+
+            <h4>7. Disclaimer</h4>
+            <p>
+              Our products are provided on an "as is" and "as available" basis to the fullest
+              extent permitted by law.
+            </p>
+
+            <h4>8. Limitation of Liability</h4>
+            <p>
+              To the fullest extent permitted by law, BUBBLE BOOM LTD shall not be liable for
+              indirect, incidental, special, consequential, or punitive damages arising from the
+              use of our products.
+            </p>
+
+            <h4>9. Termination</h4>
+            <p>
+              Access may be suspended or terminated where a user violates these Terms,
+              applicable law, platform rules, or engages in conduct that may harm our services or users.
+            </p>
+
+            <h4>10. Governing Law</h4>
+            <p>
+              These Terms are governed by laws applicable to BUBBLE BOOM LTD, subject to any
+              mandatory local consumer protection laws.
+            </p>
+
+            <h4>11. Contact</h4>
+            <p>
+              Email: nisim5641@gmail.com<br />
+              Company: BUBBLE BOOM LTD<br />
+              Google Play Console: Garson_Dev
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="contact">
+          <div>
+            <h2>Let’s connect</h2>
+            <p>For business inquiries, app support, legal matters, or platform-related questions, contact our team.</p>
+          </div>
+          <a class="btn btn-primary" href="mailto:nisim5641@gmail.com">nisim5641@gmail.com</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
       <div>
-        <p class="kicker">הגיע הזמן שנכיר,</p>
-        <h2>משרד יועצים לענייני צבא, עם ניסיון, רגישות ותוצאות מוכחות</h2>
-        <p>משרדנו מתמחה בשלושה תחומים מרכזיים: ייצוג עריקים ומשתמטים, פטור משירות צבאי, וירידה משירות קרבי. בזכות שנות ניסיון עמוקות, אנחנו יודעים בדיוק מה עובד.</p>
-        <p>ליווינו אלפי חיילים, מהרגע הראשון של הפניה ועד לתוצאה הסופית. אנחנו לא רק יועצים, אנחנו שותפים שלכם בדרך.</p>
+        <strong style="color:#101828">BUBBLE BOOM LTD</strong><br />
+        Independent mobile app & game studio
       </div>
-      <div class="pillars">
-        <div class="pillar"><div class="ico">★</div><div>שירות משפטי אישי וממוקד מטרה, אתם תמיד במרכז</div></div>
-        <div class="pillar"><div class="ico">24</div><div>זמינות 24/7 ללקוחות שלנו, גם בשישי ושבת</div></div>
-        <div class="pillar"><div class="ico">⚖️</div><div>ניסיון של שני עשורים בדיוק בתיקים האלה</div></div>
-        <div class="pillar"><div class="ico">→</div><div>תהליך מהיר וממוקד, מינימום זמן, מקסימום תוצאות</div></div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#work">What We Do</a>
+        <a href="#legal">Privacy & Terms</a>
+        <a href="#contact">Contact</a>
       </div>
+      <div>© 2026 BUBBLE BOOM LTD</div>
     </div>
-  </div>
-</section>
-
-<!-- SERVICES GRID -->
-<section class="services" id="services">
-  <div class="container">
-    <h2>השירותים שלנו <span class="accent">הפתרון שלכם.</span></h2>
-    <p class="lead">שלושה תחומים, מומחיות אחת. אנחנו כאן כדי לחלץ אתכם מהמצב מול המערכת הצבאית.</p>
-    <div class="svc-grid">
-      <div class="svc svc-red">
-        <div class="ico">🏃</div>
-        <small>ליווי בהליכי:</small>
-        <h3>עריקות והשתמטות</h3>
-        <p>הסדרת מעמד, ייצוג בבית הדין הצבאי, הפחתת עונש וסיום ההליך בצורה הטובה ביותר האפשרית עבורכם.</p>
-        <button class="more" onclick="openModal()">לייעוץ ראשוני ←</button>
-      </div>
-      <div class="svc svc-blue">
-        <div class="ico">📋</div>
-        <small>ליווי בהליכי:</small>
-        <h3>פטור משירות צבאי</h3>
-        <p>הכנה מקצועית לוועדות, ניהול ההליך מול הצבא, וקבלת פטור, מנימוקים רפואיים, נפשיים או אחרים.</p>
-        <button class="more" onclick="openModal()">לייעוץ ראשוני ←</button>
-      </div>
-      <div class="svc svc-grn">
-        <div class="ico">⬇️</div>
-        <small>ליווי בהליכי:</small>
-        <h3>ירידה משירות קרבי</h3>
-        <p>שינוי פרופיל, שיבוץ מחדש לתפקיד לא-קרבי, וניהול ההליך הרפואי-צבאי מא' עד ת'.</p>
-        <button class="more" onclick="openModal()">לייעוץ ראשוני ←</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-</div><!-- /page-home -->
-
-<div id="page-about" style="display:none">
-<!-- ABOUT SECTION -->
-<section id="about">
-
-  <!-- Hero About -->
-  <div class="ab-hero">
-    <div class="container">
-      <div class="ab-badge">✦ הסיפור שלנו</div>
-      <h2 class="ab-title">אודות <span class="ab-green">המשרד</span><br>הבית של החיילים והמשתחררים</h2>
-      <p class="ab-quote">"כי אף אחד לא צריך לעבור את השירות לבד"</p>
-      <div class="ab-btns">
-        <a href="https://wa.me/9720537037556" target="_blank" class="btn btn-primary">דברו איתנו</a>
-        <a href="#about-vision" class="btn btn-ghost">החזון שלנו</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Who We Are -->
-  <div class="ab-who">
-    <div class="container ab-who-grid">
-      <div class="ab-features">
-        <div class="ab-feat">
-          <div class="ab-feat-icon teal">🎯</div>
-          <p>להיות הכתובת הבטוחה והמקצועית לכל פנייה, שאלה או מצוקה.</p>
-        </div>
-        <div class="ab-feat">
-          <div class="ab-feat-icon orange">👥</div>
-          <p>אנשי מקצוע יוצאי מערכת הביטחון, יועצים, עו"ד ומנטורים.</p>
-        </div>
-        <div class="ab-feat">
-          <div class="ab-feat-icon pink">❤️</div>
-          <p>יחס אישי, דיסקרטיות מלאה ומלחמה על הזכויות שלכם.</p>
-        </div>
-      </div>
-
-      <div class="ab-card-dark">
-        <h3>מי אנחנו?</h3>
-        <div class="ab-underline"></div>
-        <p>אנחנו הגוף המקיף והמקצועי למתן מענה סיוע, ליווי ותמיכה לחיילים, מועמדים לשירות ביטחון ומשוחררים.</p>
-        <p>אנו מאמינים כי השירות הצבאי הוא אבן דרך משמעותית, אך המערכת הצבאית היא לעיתים קשה, מורכבת ולא פשוטה להתמודדות עבור הפרט.</p>
-        <div class="ab-stats-row">
-          <div class="ab-stat"><div class="ab-num">24/7</div><div class="ab-lbl">זמינות מלאה</div></div>
-          <div class="ab-stat"><div class="ab-num">97%</div><div class="ab-lbl">הצלחה בתיקים</div></div>
-          <div class="ab-stat"><div class="ab-num">+10K</div><div class="ab-lbl">חיילים נעזרו</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Services Cards -->
-  <div class="ab-services">
-    <div class="container">
-      <div class="ab-divider"></div>
-      <p class="ab-services-sub">אנחנו מלווים אתכם לאורך כל המסע – מהמצו הראשון ועד השחרור והאזרחות.</p>
-      <div class="ab-svc-grid">
-        <div class="ab-svc-card">
-          <div class="ab-svc-ico">🎓</div>
-          <p>השחרור הוא רק ההתחלה. אנחנו מסייעים במעבר לאזרחות, מיצוי זכויות וביסוס עתיד כלכלי ומקצועי.</p>
-          <ul class="ab-check-list">
-            <li>מימוש זכויות חיילים משוחררים</li>
-            <li>ייעוץ והכנה ללימודים וקריירה</li>
-            <li>החזרי מס ותכנון פיננסי</li>
-            <li>ביטוחים והשקעות מותאמים אישית</li>
-          </ul>
-        </div>
-        <div class="ab-svc-card">
-          <div class="ab-svc-ico">🛡️</div>
-          <p>נתקלתם בבקושי? המפקד לא מקשיב? הביורוקרטיה חונקת? אנחנו כאן כדי להילחם בשבילכם ולהשמיע את מה שמגיע לכם.</p>
-          <ul class="ab-check-list">
-            <li>סיוע בשינוי שיבוץ (טופס 55)</li>
-            <li>ליווי מול גורמי ברה"ן (קב"ן)</li>
-            <li>השגת הקלות ת"ש וסיוע כלכלי</li>
-            <li>ייצוג וליווי משפטי מלא</li>
-          </ul>
-        </div>
-        <div class="ab-svc-card">
-          <div class="ab-svc-ico">🎯</div>
-          <p>הכנה נכונה היא המפתח לשירות משמעותי. אנחנו עוזרים לכם למקסם את הנתונים האישיים שלכם ולמנוע טעויות קריטיות.</p>
-          <ul class="ab-check-list">
-            <li>הכנה לצו ראשון ויום המיא"ל</li>
-            <li>עירעור על נתוני איכות (פרו"פ וקב"א)</li>
-            <li>ליווי רפואי ושינוי פרופיל</li>
-            <li>סיוע בקבלת מיונים ותפקידים</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Vision -->
-  <div class="ab-vision" id="about-vision">
-    <div class="container">
-      <div class="ab-vision-ico">✨</div>
-      <h3>החזון שלנו</h3>
-      <p class="ab-vision-quote">"ליצור מציאות שבה כל חייל ומשתחרר בישראל מקבל את מלוא התמיכה, המידע והכלים להם הוא זקוק, כדי למצות את הפוטנציאל האישי שלו, לשמור על זכויותיו ולסיים את פרק השירות בראש מורם ובבריאות שלמה."</p>
-      <div class="ab-vision-cards">
-        <div class="ab-vc"><strong>תוצאות בשטח</strong><p>אנחנו לא רק מייעצים, אנחנו פותרים בעיות.</p></div>
-        <div class="ab-vc"><strong>זמינות ואנושיות</strong><p>מענה מהיר, בגובה העיניים ומתוך הבנה אמיתית.</p></div>
-        <div class="ab-vc"><strong>מקצועיות ללא פשרות</strong><p>ידע מעמיק ועדכני בכל פקודות הצבא וההנהלים.</p></div>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-<style>
-  /* ABOUT */
-  .ab-hero{
-    background:linear-gradient(135deg,#0d1a10,#1a2f1a);
-    color:#fff;text-align:center;padding:80px 24px 100px;
-  }
-  .ab-badge{display:inline-block;background:rgba(168,196,71,.15);border:1px solid rgba(168,196,71,.4);color:var(--green-l);padding:6px 18px;border-radius:999px;font-size:13px;font-weight:700;margin-bottom:24px}
-  .ab-title{font-size:46px;font-weight:900;margin:0 0 20px;line-height:1.2}
-  .ab-green{color:var(--green-l)}
-  .ab-quote{font-size:18px;color:#adc98a;border-right:3px solid #f0b429;padding-right:14px;display:inline-block;text-align:right;margin:0 0 32px;direction:rtl}
-  .ab-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-
-  .ab-who{background:#f7f8f4;padding:60px 0}
-  .ab-who-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
-  .ab-features{display:flex;flex-direction:column;gap:16px}
-  .ab-feat{background:#fff;border-radius:12px;padding:20px 20px 20px 20px;display:flex;align-items:center;gap:16px;box-shadow:0 2px 12px rgba(0,0,0,.07);direction:rtl}
-  .ab-feat-icon{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-  .ab-feat-icon.teal{background:rgba(29,233,182,.15)}
-  .ab-feat-icon.orange{background:rgba(255,165,0,.15)}
-  .ab-feat-icon.pink{background:rgba(255,100,100,.15)}
-  .ab-feat p{margin:0;font-size:15px;color:#444;text-align:right}
-
-  .ab-card-dark{background:#111c27;border-radius:16px;padding:32px;color:#fff}
-  .ab-card-dark h3{margin:0 0 8px;font-size:22px;text-align:right}
-  .ab-underline{width:48px;height:3px;background:linear-gradient(90deg,#f0b429,var(--green-l));border-radius:2px;margin:0 0 20px auto}
-  .ab-card-dark p{color:#9dc9b0;font-size:14px;line-height:1.7;text-align:right;margin:0 0 12px}
-  .ab-stats-row{display:flex;justify-content:space-around;border-top:1px solid rgba(255,255,255,.1);padding-top:20px;margin-top:20px}
-  .ab-num{font-size:28px;font-weight:900;color:#fff;text-align:center}
-  .ab-lbl{font-size:12px;color:#9dc9b0;text-align:center;margin-top:4px}
-
-  .ab-services{background:#fff;padding:60px 0}
-  .ab-divider{width:48px;height:3px;background:#f0b429;border-radius:2px;margin:0 auto 16px}
-  .ab-services-sub{text-align:center;color:#666;font-size:16px;margin:0 auto 40px;max-width:680px}
-  .ab-svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  .ab-svc-card{background:#f7f8f4;border:1px solid #e3e6db;border-radius:16px;padding:28px;direction:rtl}
-  .ab-svc-ico{font-size:32px;background:#fff;width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 0 16px auto;box-shadow:0 2px 8px rgba(0,0,0,.1)}
-  .ab-svc-card > p{color:#555;font-size:14px;line-height:1.7;margin:0 0 16px;text-align:right}
-  .ab-check-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
-  .ab-check-list li{font-size:13px;color:#444;display:flex;align-items:center;gap:8px;flex-direction:row-reverse;justify-content:flex-end}
-  .ab-check-list li::before{content:"✓";width:18px;height:18px;background:rgba(29,233,182,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;color:#1de9b6;flex-shrink:0}
-
-  .ab-vision{background:linear-gradient(135deg,#0d1a10,#1a2f1a);color:#fff;padding:80px 24px;text-align:center}
-  .ab-vision-ico{font-size:48px;width:70px;height:70px;background:#f0b429;border-radius:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 24px}
-  .ab-vision h3{font-size:32px;font-weight:900;margin:0 0 24px}
-  .ab-vision-quote{font-size:17px;color:#adc98a;max-width:760px;margin:0 auto 40px;line-height:1.8;font-style:italic}
-  .ab-vision-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:900px;margin:0 auto}
-  .ab-vc{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:20px;text-align:right}
-  .ab-vc strong{color:#fff;font-size:15px}
-  .ab-vc p{color:#9dc9b0;font-size:13px;margin:8px 0 0;line-height:1.6}
-
-  @media(max-width:900px){
-    .ab-who-grid,.ab-svc-grid,.ab-vision-cards{grid-template-columns:1fr}
-    .ab-title{font-size:32px}
-  }
-</style>
-
-<footer class="rich-footer">
-  <div class="rf-inner">
-    <div class="rf-brand">
-      <div class="rf-logo">Amnon Support</div>
-      <p class="rf-tagline">המקום המקצועי שלך לקבל ייעוץ, לצמוח ולהצליח. אנחנו כאן בשבילך, מהצו הראשון ועד השחרור.</p>
-      <div class="rf-contact">
-        <a href="tel:0537037556"><span class="rf-contact-icon">📞</span>053-703-7556</a>
-        <a href="https://wa.me/9720537037556"><span class="rf-contact-icon">💬</span>WhatsApp</a>
-      </div>
-      <div class="rf-trust">
-        <span class="rf-badge">✓ ייעוץ מקצועי מובטח</span>
-        <span class="rf-badge">🔒 פרטיות מלאה</span>
-      </div>
-    </div>
-    <div class="rf-cols">
-      <div class="rf-col">
-        <h4>מי אנחנו</h4>
-        <ul>
-          <li><a href="#" onclick="event.preventDefault();showPage('about')">הסיפור שלנו</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('about')">הצוות המקצועי</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('about')">אודות</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('contact')">בואו לעבוד איתנו</a></li>
-        </ul>
-      </div>
-      <div class="rf-col">
-        <h4>השירותים שלנו</h4>
-        <ul>
-          <li><a href="#" onclick="event.preventDefault();showPage('programs')">מסלולי הליווי</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('programs')">לפני הגיוס</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('programs')">במהלך השירות</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('programs')">לאחר השחרור</a></li>
-        </ul>
-      </div>
-      <div class="rf-col">
-        <h4>תמיכה</h4>
-        <ul>
-          <li><a href="#" onclick="event.preventDefault();showPage('faq')">שאלות נפוצות</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('contact')">צור קשר</a></li>
-          <li><a href="https://wa.me/9720537037556">WhatsApp</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('accessibility')">הצהרת נגישות</a></li>
-        </ul>
-      </div>
-      <div class="rf-col">
-        <h4>משפטי</h4>
-        <ul>
-          <li><a href="#" onclick="event.preventDefault();showPage('terms')">תנאי שימוש</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('privacy')">מדיניות פרטיות</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="rf-bottom">© 2025 Amnon Support, ייעוץ צבאי מקצועי. כל הזכויות שמורות.</div>
-</footer>
-</div><!-- /page-about -->
-
-<div id="page-contact" style="display:none">
-<!-- CONTACT SECTION -->
-<section id="contact">
-  <div class="contact-header">
-    <h2>דברו איתנו</h2>
-    <p>אנחנו כאן בשבילכם לכל שאלה, התייעצות או בעיה.</p>
-  </div>
-  <div class="contact-body container">
-    <div class="contact-form-card">
-      <h3>שלחו לנו הודעה</h3>
-      <form class="cf" onsubmit="submitContact(event)">
-        <div class="cf-row">
-          <div class="cf-group">
-            <label>שם מלא</label>
-            <input name="name" placeholder="" required maxlength="80">
-          </div>
-          <div class="cf-group">
-            <label>טלפון</label>
-            <input name="phone" placeholder="" required maxlength="20">
-          </div>
-        </div>
-        <div class="cf-group">
-          <label>אימייל</label>
-          <input name="email" type="email" placeholder="" maxlength="120">
-        </div>
-        <div class="cf-group">
-          <label>תוכן הפנייה</label>
-          <textarea name="message" rows="4" maxlength="600"></textarea>
-        </div>
-        <button type="submit" class="cf-btn">✈ שלח הודעה</button>
-        <div class="cf-msg" id="cfMsg"></div>
-      </form>
-    </div>
-
-    <div class="contact-cards">
-      <div class="cc">
-        <div class="cc-icon" style="background:#1de9b6">📞</div>
-        <div class="cc-body">
-          <div class="cc-title">טלפון</div>
-          <div class="cc-val">053-703-7556</div>
-          <a href="tel:0537037556" class="cc-link">התקשר עכשיו ←</a>
-        </div>
-      </div>
-      <div class="cc">
-        <div class="cc-icon" style="background:#25d366">💬</div>
-        <div class="cc-body">
-          <div class="cc-title">וואטסאפ</div>
-          <div class="cc-val">זמינים לכל שאלה</div>
-          <a href="https://wa.me/9720537037556" target="_blank" class="cc-link">שלח הודעה ←</a>
-        </div>
-      </div>
-      <div class="cc">
-        <div class="cc-icon" style="background:#4285f4">✉️</div>
-        <div class="cc-body">
-          <div class="cc-title">אימייל</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<style>
-  #page-contact{
-    background:var(--bg);
-    min-height:100vh;
-  }
-  #contact .contact-header{
-    background:linear-gradient(rgba(30,50,10,.92),rgba(30,50,10,.92));
-    color:#fff;text-align:center;padding:70px 24px 100px;
-  }
-  #contact .contact-header h2{font-size:42px;margin:0 0 12px;font-weight:900}
-  #contact .contact-header p{color:#cfd8a8;font-size:17px;margin:0}
-  .contact-body{
-    display:grid;grid-template-columns:1.4fr 1fr;gap:28px;
-    max-width:1100px;margin:0 auto;
-    padding:48px 24px 80px;align-items:start;
-  }
-  .contact-form-card{
-    background:#1a2818;border-radius:14px;padding:32px;
-    box-shadow:0 12px 40px rgba(0,0,0,.3);
-    border:1px solid rgba(168,196,71,.15);
-  }
-  .contact-form-card h3{color:#fff;margin:0 0 22px;font-size:20px;text-align:right}
-  .cf-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  .cf-group{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
-  .cf-group label{color:#cfd8a8;font-size:14px;font-weight:600;text-align:right}
-  .cf-group input,.cf-group textarea{
-    background:#0f1e0e;border:1px solid rgba(168,196,71,.25);border-radius:8px;
-    padding:12px 14px;color:#fff;font-size:15px;font-family:inherit;direction:rtl;
-    transition:border-color .2s;outline:none;
-  }
-  .cf-group input:focus,.cf-group textarea:focus{border-color:var(--green-l)}
-  .cf-group textarea{resize:vertical}
-  .cf-btn{
-    width:100%;background:var(--green-l);color:#1a2406;font-weight:800;font-size:16px;
-    padding:14px;border:0;border-radius:8px;cursor:pointer;font-family:inherit;
-    margin-top:4px;transition:background .2s;
-  }
-  .cf-btn:hover{background:#b9d655}
-  .cf-msg{text-align:center;margin-top:10px;font-weight:700;font-size:14px}
-
-  .contact-cards{display:flex;flex-direction:column;gap:16px;padding-top:4px}
-  .cc{
-    background:#1a2818;border-radius:12px;padding:20px;
-    display:flex;align-items:center;gap:16px;
-    box-shadow:0 4px 16px rgba(0,0,0,.25);
-    border:1px solid rgba(168,196,71,.15);
-  }
-  .cc-icon{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;background:rgba(168,196,71,.15)}
-  .cc-body{flex:1;text-align:right}
-  .cc-title{color:#fff;font-weight:700;font-size:15px}
-  .cc-val{color:#cfd8a8;font-size:13px;margin:3px 0 8px;direction:ltr;text-align:right}
-  .cc-link{color:var(--green-l);font-size:13px;font-weight:700;text-decoration:none}
-  .cc-link:hover{text-decoration:underline}
-
-  @media(max-width:900px){
-    .contact-body{grid-template-columns:1fr}
-    .cf-row{grid-template-columns:1fr}
-  }
-</style>
-
-<script>
-function submitContact(e){
-  e.preventDefault();
-  const msg=document.getElementById('cfMsg');
-  msg.style.color='#1de9b6';
-  msg.textContent='תודה! קיבלנו את הפנייה ונחזור אליך בקרוב.';
-  e.target.reset();
-}
-</script>
-
-<footer class="rich-footer">
-  <div class="rf-inner">
-    <div class="rf-brand">
-      <div class="rf-logo">Amnon Support</div>
-      <p class="rf-tagline">המקום המקצועי שלך לקבל ייעוץ, לצמוח ולהצליח. אנחנו כאן בשבילך, מהצו הראשון ועד השחרור.</p>
-      <div class="rf-contact">
-        <a href="tel:0537037556"><span class="rf-contact-icon">📞</span>053-703-7556</a>
-        <a href="https://wa.me/9720537037556"><span class="rf-contact-icon">💬</span>WhatsApp</a>
-      </div>
-      <div class="rf-trust">
-        <span class="rf-badge">✓ ייעוץ מקצועי מובטח</span>
-        <span class="rf-badge">🔒 פרטיות מלאה</span>
-      </div>
-    </div>
-    <div class="rf-cols">
-      <div class="rf-col">
-        <h4>מי אנחנו</h4>
-        <ul>
-          <li><a href="#" onclick="event.preventDefault();showPage('about')">הסיפור שלנו</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('about')">הצוות המקצועי</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('about')">אודות</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('contact')">בואו לעבוד איתנו</a></li>
-        </ul>
-      </div>
-      <div class="rf-col">
-        <h4>השירותים שלנו</h4>
-        <ul>
-          <li><a href="#" onclick="event.preventDefault();showPage('programs')">מסלולי הליווי</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('programs')">לפני הגיוס</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('programs')">במהלך השירות</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('programs')">לאחר השחרור</a></li>
-        </ul>
-      </div>
-      <div class="rf-col">
-        <h4>תמיכה</h4>
-        <ul>
-          <li><a href="#" onclick="event.preventDefault();showPage('faq')">שאלות נפוצות</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('contact')">צור קשר</a></li>
-          <li><a href="https://wa.me/9720537037556">WhatsApp</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('accessibility')">הצהרת נגישות</a></li>
-        </ul>
-      </div>
-      <div class="rf-col">
-        <h4>משפטי</h4>
-        <ul>
-          <li><a href="#" onclick="event.preventDefault();showPage('terms')">תנאי שימוש</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('privacy')">מדיניות פרטיות</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="rf-bottom">© 2025 Amnon Support, ייעוץ צבאי מקצועי. כל הזכויות שמורות.</div>
-</footer>
-</div><!-- /page-contact -->
-
-<!-- PROGRAMS PAGE -->
-<div id="page-programs" style="display:none">
-
-<div class="prog-hero">
-  <div class="container">
-    <div class="ab-badge">✦ המסלולים שלנו</div>
-    <h2>תמיכה מקיפה<br><span class="ab-green">בכל שלב בדרך</span></h2>
-    <p>הצוות שלנו כאן כדי לספק מענה מקצועי, אנושי ומכיל לכל אתגר בשירות הצבאי.<br>בחרו את המסלול המתאים לכם וקבלו את הליווי שמגיע לכם.</p>
-  </div>
-</div>
-
-<div class="prog-body container">
-
-  <!-- TABS -->
-  <div class="prog-tabs">
-    <button class="prog-tab active" onclick="switchTab('before',this)">לפני הגיוס</button>
-    <button class="prog-tab" onclick="switchTab('during',this)">במהלך שירות</button>
-    <button class="prog-tab" onclick="switchTab('after',this)">משוחררים</button>
-  </div>
-
-  <!-- TAB: לפני הגיוס -->
-  <div id="tab-before" class="prog-grid">
-
-    <div class="prog-card">
-      <div class="prog-cat">שיבוץ והכנה</div>
-      <h3>שינוי שיבוץ לפני גיוס</h3>
-      <p>שיבוץ שלא תואם את הרצונות או היכולות יכול להיות מתסכל. נסייע לכם להגיש בקשה מנומקת לשינוי השיבוץ עוד לפני יום הגיוס.</p>
-      <ul class="prog-bullets"><li>✓ ליווי אישי ומקצועי</li><li>✓ זמינות גבוהה</li><li>✓ טיפול בירוקרטי מלא</li></ul>
-      <div class="prog-btns"><button class="prog-btn-ghost" onclick="openModal()">מידע נוסף</button><button class="prog-btn-main" onclick="openModal()">התחל תהליך ←</button></div>
-    </div>
-
-    <div class="prog-card">
-      <div class="prog-cat">רפואה וצבא</div>
-      <h3>ערעור פרופיל רפואי/נפשי</h3>
-      <p>פרופיל שגוי יכול לחסום תפקידים או לסכן את בריאותכם. נלווה אתכם בתהליך הערעור כדי להבטיח דיוק מירבי.</p>
-      <ul class="prog-bullets"><li>✓ ליווי אישי ומקצועי</li><li>✓ זמינות גבוהה</li><li>✓ טיפול בירוקרטי מלא</li></ul>
-      <div class="prog-btns"><button class="prog-btn-ghost" onclick="openModal()">מידע נוסף</button><button class="prog-btn-main" onclick="openModal()">התחל תהליך ←</button></div>
-    </div>
-
-    <div class="prog-card">
-      <div class="prog-cat">נתוני איכות</div>
-      <h3>ערעור דפ"ר ונתונים איכותיים</h3>
-      <p>הייתם בלחץ? לא הרגשתם טוב? נסייע לכם להגיש בקשה למבחן חוזר ולשפר את נתוני הקב"א והדפ"ר.</p>
-      <ul class="prog-bullets"><li>✓ ליווי אישי ומקצועי</li><li>✓ זמינות גבוהה</li><li>✓ טיפול בירוקרטי מלא</li></ul>
-      <div class="prog-btns"><button class="prog-btn-ghost" onclick="openModal()">מידע נוסף</button><button class="prog-btn-main" onclick="openModal()">התחל תהליך ←</button></div>
-    </div>
-
-    <div class="prog-card">
-      <div class="prog-cat">בירוקרטיה</div>
-      <h3>דחיית או הקדמת גיוס</h3>
-      <p>בין אם למכינה, שנת שירות או השלמת בגרויות, הטיימינג חשוב. נסייע לכם להגיש בקשה לשינוי מועד הגיוס.</p>
-      <ul class="prog-bullets"><li>✓ ליווי אישי ומקצועי</li><li>✓ זמינות גבוהה</li><li>✓ טיפול בירוקרטי מלא</li></ul>
-      <div class="prog-btns"><button class="prog-btn-ghost" onclick="openModal()">מידע נוסף</button><button class="prog-btn-main" onclick="openModal()">התחל תהליך ←</button></div>
-    </div>
-
-    <div class="prog-card">
-      <div class="prog-cat">מוטיבציה</div>
-      <h3>התנדבות ומעבר ללוחמה</h3>
-      <p>חולמים להיות לוחמים למרות פרופיל נמוך? נלווה אתכם בתהליך ההתנדבות והחריגים כדי שתוכלו לתרום היכן שאתם רוצים.</p>
-      <ul class="prog-bullets"><li>✓ ליווי אישי ומקצועי</li><li>✓ זמינות גבוהה</li><li>✓ טיפול בירוקרטי מלא</li></ul>
-      <div class="prog-btns"><button class="prog-btn-ghost" onclick="openModal()">מידע נוסף</button><button class="prog-btn-main" onclick="openModal()">התחל תהליך ←</button></div>
-    </div>
-
-    <div class="prog-card">
-      <div class="prog-cat">זכויות פרט</div>
-      <h3>פטור משירות ביטחון</h3>
-      <p>אם הגיוס אינו מתאפשר מסיבות רפואיות, נפשיות או אחרות, נדאג שתקבלו את הפטור המגיע לכם בתהליך מסודר והוגן.</p>
-      <ul class="prog-bullets"><li>✓ ליווי אישי ומקצועי</li><li>✓ זמינות גבוהה</li><li>✓ טיפול בירוקרטי מלא</li></ul>
-      <div class="prog-btns"><button class="prog-btn-ghost" onclick="openModal()">מידע נוסף</button><button class="prog-btn-main" onclick="openModal()">התחל תהליך ←</button></div>
-    </div>
-
-    <div class="prog-card">
-      <div class="prog-cat">משפט וסטטוס</div>
-      <h3>הסדרת מעמד למשתמטים</h3>
-      <p>פספסתם צווים? הוכרזתם כמשתמטים? אל תחכו למעצר. נסייע לכם להסדיר את המעמד מול לשכת הגיוס ולחזור למסלול.</p>
-      <ul class="prog-bullets"><li>✓ ליווי אישי ומקצועי</li><li>✓ זמינות גבוהה</li><li>✓ טיפול בירוקרטי מלא</li></ul>
-      <div class="prog-btns"><button class="prog-btn-ghost" onclick="openModal()">מידע נוסף</button><button class="prog-btn-main" onclick="openModal()">התחל תהליך ←</button></div>
-    </div>
-
-    <div class="prog-card">
-      <div class="prog-cat">רווחה</div>
-      <h3>הקלה בתנאי שירות</h3>
-      <p>יודעים שיהיה קשה בבית? נדאג שהצבא יכיר במצב המשפחתי או הכלכלי שלכם מראש, כדי שתקבלו הקלות כבר ביום הגיוס.</p>
-      <ul class="prog-bullets"><li>✓ ליווי אישי ומקצועי</li><li>✓ זמינות גבוהה</li><li>✓ טיפול בירוקרטי מלא</li></ul>
-      <div class="prog-btns"><button class="prog-btn-ghost" onclick="openModal()">מידע נוסף</button><button class="prog-btn-main" onclick="openModal()">התחל תהליך ←</button></div>
-    </div>
-
-    <div class="prog-card">
-      <div class="prog-cat">זכויות</div>
-      <h3>מיצוי זכויות מלש"בים</h3>
-      <p>המערכת הצבאית מורכבת. אנו נעניק לכם את כל המידע על הזכויות שלכם כמלש"בים וכחיילים לעתיד.</p>
-      <ul class="prog-bullets"><li>✓ ליווי אישי ומקצועי</li><li>✓ זמינות גבוהה</li><li>✓ טיפול בירוקרטי מלא</li></ul>
-      <div class="prog-btns"><button class="prog-btn-ghost" onclick="openModal()">מידע נוסף</button><button class="prog-btn-main" onclick="openModal()">התחל תהליך ←</button></div>
-    </div>
-
-    <div class="prog-card">
-      <div class="prog-cat">רווחה ות"ש</div>
-      <h3>תנאי שירות (ת"ש)</h3>
-      <p>סיוע בהגשת בקשות לתשמ"ש, סיוע בשכר דירה והקלות נוספות, הכל בתהליך מסודר מול משקית ת"ש בלשכת הגיוס.</p>
-      <ul class="prog-bullets"><li>✓ ליווי אישי ומקצועי</li><li>✓ זמינות גבוהה</li><li>✓ טיפול בירוקרטי מלא</li></ul>
-      <div class="prog-btns"><button class="prog-btn-ghost" onclick="openModal()">מידע נוסף</button><button class="prog-btn-main" onclick="openModal()">התחל תהליך ←</button></div>
-    </div>
-
-    <div class="prog-card">
-      <div class="prog-cat">ליווי אישי</div>
-      <h3>תכניות ליווי אישי למלש"ב</h3>
-      <p>הכנה מנטלית, סימולציות לראיונות, ומענה לכל שאלה וחשש לקראת הגיוס. תוכנית אישית שתתן לכם ביטחון.</p>
-      <ul class="prog-bullets"><li>✓ ליווי אישי ומקצועי</li><li>✓ זמינות גבוהה</li><li>✓ טיפול בירוקרטי מלא</li></ul>
-      <div class="prog-btns"><button class="prog-btn-ghost" onclick="openModal()">מידע נוסף</button><button class="prog-btn-main" onclick="openModal()">התחל תהליך ←</button></div>
-    </div>
-
-  </div>
-
-  <!-- TAB: במהלך שירות -->
-  <div id="tab-during" class="prog-grid" style="display:none">
-
-    <div class="prog-card">
-      <div class="prog-cat">קרבי</div>
-      <h3>ירידה משירות קרבי</h3>
-      <p>שינוי פרופיל, שיבוץ מחדש לתפקיד לא-קרבי, וניהול ההליך הרפואי-צבאי מא' עד ת'.</p>
-      <ul class="prog-bullets"><li>✓ ליווי אישי ומקצועי</li><li>✓ זמינות גבוהה</li><li>✓ טיפול בירוקרטי מלא</li></ul>
-      <div class="prog-btns"><button class="prog-btn-ghost" onclick="openModal()">מידע נוסף</button><button class="prog-btn-main" onclick="openModal()">התחל תהליך ←</button></div>
-    </div>
-
-    <div class="prog-card">
-      <div class="prog-cat">פטור</div>
-      <h3>פטור משירות במהלך שירות</h3>
-      <p>קיבלתם פציעה, אבחנה, או מצב שמקשה על המשך השירות? נלווה אתכם בהליך הפטור מהמצב הנוכחי.</p>
-      <ul class="prog-bullets"><li>✓ ליווי אישי ומקצועי</li><li>✓ זמינות גבוהה</li><li>✓ טיפול בירוקרטי מלא</li></ul>
-      <div class="prog-btns"><button class="prog-btn-ghost" onclick="openModal()">מידע נוסף</button><button class="prog-btn-main" onclick="openModal()">התחל תהליך ←</button></div>
-    </div>
-
-    <div class="prog-card">
-      <div class="prog-cat">עריקות</div>
-      <h3>הסדרת עריקות</h3>
-      <p>נעדרתם מהשירות? אנחנו כאן לעזור לכם להסדיר את המעמד, להפחית עונש ולחזור למסלול בצורה הטובה ביותר.</p>
-      <ul class="prog-bullets"><li>✓ ליווי אישי ומקצועי</li><li>✓ זמינות גבוהה</li><li>✓ טיפול בירוקרטי מלא</li></ul>
-      <div class="prog-btns"><button class="prog-btn-ghost" onclick="openModal()">מידע נוסף</button><button class="prog-btn-main" onclick="openModal()">התחל תהליך ←</button></div>
-    </div>
-
-    <div class="prog-card">
-      <div class="prog-cat">רווחה</div>
-      <h3>הקלות ת"ש במהלך שירות</h3>
-      <p>זכאים להקלות בשל מצב משפחתי או כלכלי? נסייע לכם לממש את הזכויות שלכם מול משקית ת"ש ביחידה.</p>
-      <ul class="prog-bullets"><li>✓ ליווי אישי ומקצועי</li><li>✓ זמינות גבוהה</li><li>✓ טיפול בירוקרטי מלא</li></ul>
-      <div class="prog-btns"><button class="prog-btn-ghost" onclick="openModal()">מידע נוסף</button><button class="prog-btn-main" onclick="openModal()">התחל תהליך ←</button></div>
-    </div>
-
-  </div>
-
-  <!-- TAB: משוחררים -->
-  <div id="tab-after" class="prog-grid" style="display:none">
-
-    <div class="prog-card">
-      <div class="prog-cat">זכויות</div>
-      <h3>מיצוי זכויות חיילים משוחררים</h3>
-      <p>מימוש זכויות לפנסיה, מענקים, הנחות, קורסים ממשלתיים ועוד, אנחנו נוודא שתקבלו את כל מה שמגיע לכם.</p>
-      <ul class="prog-bullets"><li>✓ ליווי אישי ומקצועי</li><li>✓ זמינות גבוהה</li><li>✓ טיפול בירוקרטי מלא</li></ul>
-      <div class="prog-btns"><button class="prog-btn-ghost" onclick="openModal()">מידע נוסף</button><button class="prog-btn-main" onclick="openModal()">התחל תהליך ←</button></div>
-    </div>
-
-    <div class="prog-card">
-      <div class="prog-cat">לימודים וקריירה</div>
-      <h3>ייעוץ ללימודים וקריירה</h3>
-      <p>השחרור הוא רק ההתחלה. נסייע לכם למצוא את הנתיב הנכון ללימודים גבוהים, מלגות ושוק העבודה.</p>
-      <ul class="prog-bullets"><li>✓ ליווי אישי ומקצועי</li><li>✓ זמינות גבוהה</li><li>✓ טיפול בירוקרטי מלא</li></ul>
-      <div class="prog-btns"><button class="prog-btn-ghost" onclick="openModal()">מידע נוסף</button><button class="prog-btn-main" onclick="openModal()">התחל תהליך ←</button></div>
-    </div>
-
-    <div class="prog-card">
-      <div class="prog-cat">פיננסי</div>
-      <h3>החזרי מס ותכנון פיננסי</h3>
-      <p>זכאים להחזרי מס? יש לכם ביטוחים שצוברים כסף? נעזור לכם למצות כל שקל שמגיע לכם.</p>
-      <ul class="prog-bullets"><li>✓ ליווי אישי ומקצועי</li><li>✓ זמינות גבוהה</li><li>✓ טיפול בירוקרטי מלא</li></ul>
-      <div class="prog-btns"><button class="prog-btn-ghost" onclick="openModal()">מידע נוסף</button><button class="prog-btn-main" onclick="openModal()">התחל תהליך ←</button></div>
-    </div>
-
-  </div>
-
-</div><!-- /prog-body -->
-
-<footer class="rich-footer">
-  <div class="rf-inner">
-    <div class="rf-brand">
-      <div class="rf-logo">Amnon Support</div>
-      <p class="rf-tagline">המקום המקצועי שלך לקבל ייעוץ, לצמוח ולהצליח. אנחנו כאן בשבילך, מהצו הראשון ועד השחרור.</p>
-      <div class="rf-contact">
-        <a href="tel:0537037556"><span class="rf-contact-icon">📞</span>053-703-7556</a>
-        <a href="https://wa.me/9720537037556"><span class="rf-contact-icon">💬</span>WhatsApp</a>
-      </div>
-      <div class="rf-trust">
-        <span class="rf-badge">✓ ייעוץ מקצועי מובטח</span>
-        <span class="rf-badge">🔒 פרטיות מלאה</span>
-      </div>
-    </div>
-    <div class="rf-cols">
-      <div class="rf-col">
-        <h4>מי אנחנו</h4>
-        <ul>
-          <li><a href="#" onclick="event.preventDefault();showPage('about')">הסיפור שלנו</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('about')">הצוות המקצועי</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('about')">אודות</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('contact')">בואו לעבוד איתנו</a></li>
-        </ul>
-      </div>
-      <div class="rf-col">
-        <h4>השירותים שלנו</h4>
-        <ul>
-          <li><a href="#" onclick="event.preventDefault();showPage('programs')">מסלולי הליווי</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('programs')">לפני הגיוס</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('programs')">במהלך השירות</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('programs')">לאחר השחרור</a></li>
-        </ul>
-      </div>
-      <div class="rf-col">
-        <h4>תמיכה</h4>
-        <ul>
-          <li><a href="#" onclick="event.preventDefault();showPage('faq')">שאלות נפוצות</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('contact')">צור קשר</a></li>
-          <li><a href="https://wa.me/9720537037556">WhatsApp</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('accessibility')">הצהרת נגישות</a></li>
-        </ul>
-      </div>
-      <div class="rf-col">
-        <h4>משפטי</h4>
-        <ul>
-          <li><a href="#" onclick="event.preventDefault();showPage('terms')">תנאי שימוש</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('privacy')">מדיניות פרטיות</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="rf-bottom">© 2025 Amnon Support, ייעוץ צבאי מקצועי. כל הזכויות שמורות.</div>
-</footer>
-</div><!-- /page-programs -->
-
-<!-- FAQ PAGE -->
-<div id="page-faq" style="display:none">
-<div class="static-hero">
-  <div class="container">
-    <div class="ab-badge">✦ שאלות ותשובות</div>
-    <h2 class="ab-title">שאלות <span class="ab-green">נפוצות</span></h2>
-    <p style="color:#cfd8a8;max-width:560px;margin:0 auto;font-size:16px;line-height:1.8">תשובות לשאלות הנפוצות ביותר שאנחנו מקבלים מחיילים ומשפחותיהם.</p>
-  </div>
-</div>
-<div class="container faq-body">
-  <div class="faq-list">
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">מה תחומי הייעוץ שאתם מטפלים בהם?<span class="faq-arr">▾</span></button>
-      <div class="faq-a">אנחנו מתמחים בכל ענייני הצבא: שינוי שיבוץ, ערעורי פרופיל רפואי ונפשי, דחיית גיוס, פטור משירות, הסדרת עריקות, הקלות בתנאי שירות ועוד. כל בעיה הקשורה לצבא, אנחנו כאן בשבילכם.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">כמה עולה הייעוץ?<span class="faq-arr">▾</span></button>
-      <div class="faq-a">שיחת הייעוץ הראשונה היא ללא עלות ומחייבת. לאחר שנבין את הצורך, נציג מסלול מותאם אישית עם תמחור שקוף. אנחנו מאמינים שכל חייל ומשפחה מגיעים לקבל ייעוץ מקצועי ללא מחסומים כלכליים.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">כמה זמן לוקח התהליך?<span class="faq-arr">▾</span></button>
-      <div class="faq-a">משך התהליך תלוי בסוג הבקשה. שינוי שיבוץ פשוט יכול להסתיים תוך 2–4 שבועות, בעוד ערעור פרופיל רפואי עשוי לקחת 2–3 חודשים. בכל מקרה, אנחנו מנהלים את התהליך באופן שוטף ומעדכנים אתכם בכל שלב.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">האם ניתן לשנות שיבוץ גם אחרי הגיוס?<span class="faq-arr">▾</span></button>
-      <div class="faq-a">כן. שינוי שיבוץ אפשרי הן לפני הגיוס והן במהלך השירות. לאחר הגיוס התהליך מורכב יותר ודורש נימוק חזק, אך עם ייעוץ מקצועי הסיכויים לשינוי עולים משמעותית. פנו אלינו לבדיקת המקרה הספציפי שלכם.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">מה ההבדל בין שינוי פרופיל לפטור משירות?<span class="faq-arr">▾</span></button>
-      <div class="faq-a">שינוי פרופיל משמעותו עדכון הפרופיל הרפואי כך שישקף נכון את מצבכם הבריאותי, אתם עדיין משרתים, אבל בתפקידים המתאימים למצבכם. פטור משירות משמעותו שחרור מוחלט מהשירות הצבאי, ומוענק רק בנסיבות רפואיות או אישיות מיוחדות.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">האם המידע שלי נשמר בסודיות מוחלטת?<span class="faq-arr">▾</span></button>
-      <div class="faq-a">בהחלט. כל מידע שתשתפו עמנו מוגן בחיסיון מלא. אנחנו מחויבים לשמירה קפדנית על פרטיות כל לקוח, ולא מעבירים מידע לצדדים שלישיים ללא הסכמתכם המפורשת.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">איך מתחילים את התהליך?<span class="faq-arr">▾</span></button>
-      <div class="faq-a">פשוט מאוד, פנו אלינו בטלפון, WhatsApp או דרך הטופס בדף "צור קשר". תוך 24 שעות ניצור קשר ונתאם שיחת ייעוץ ראשונית ללא עלות. בשיחה הזאת נבין את המצב שלכם ונסביר מה ניתן לעשות.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">האם אתם עובדים גם עם הורים ובני משפחה?<span class="faq-arr">▾</span></button>
-      <div class="faq-a">כן. פעמים רבות ההורים הם אלה שיוזמים את הפנייה, והם מוזמנים להשתתף בתהליך לצד החייל עצמו. אנחנו יודעים שהמשפחה כולה מושפעת מהשירות הצבאי, ואנחנו כאן בשביל כולכם.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">מה קורה אם הצבא דוחה את הבקשה?<span class="faq-arr">▾</span></button>
-      <div class="faq-a">דחייה ראשונית אינה סוף הדרך. ברוב המקרים ניתן לערער, לתמוך בבקשה במסמכים נוספים, או לנסות מסלול חלופי. אנחנו מלווים אתכם גם לאחר דחייה ובוחנים יחד את כל האפשרויות עד למיצוי מלא של הזכויות.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">האם ניתן לפנות אליכם גם בעניין עריקות?<span class="faq-arr">▾</span></button>
-      <div class="faq-a">כן, וחשוב לפנות מוקדם ככל האפשר. ככל שהסדרת המעמד נעשית מוקדם יותר, כך הסנקציות קטנות יותר. אל תחכו למעצר, אנחנו מטפלים בהסדרת מעמד מול לשכת הגיוס בדיסקרטיות ובמהירות.</div>
-    </div>
-
-  </div>
-  <div style="text-align:center;margin-top:40px;padding-bottom:20px">
-    <p style="color:var(--muted);margin-bottom:16px">לא מצאתם תשובה? דברו ישירות איתנו</p>
-    <button onclick="openModal()" style="background:var(--green-l);color:#1a2406;font-weight:800;font-size:15px;padding:13px 28px;border-radius:8px;border:0;cursor:pointer;font-family:inherit">שיחת ייעוץ ללא עלות ←</button>
-  </div>
-</div>
-<footer class="rich-footer">
-  <div class="rf-inner">
-    <div class="rf-brand">
-      <div class="rf-logo">Amnon Support</div>
-      <p class="rf-tagline">המקום המקצועי שלך לקבל ייעוץ, לצמוח ולהצליח. אנחנו כאן בשבילך, מהצו הראשון ועד השחרור.</p>
-      <div class="rf-contact">
-        <a href="tel:0537037556"><span class="rf-contact-icon">📞</span>053-703-7556</a>
-        <a href="https://wa.me/9720537037556"><span class="rf-contact-icon">💬</span>WhatsApp</a>
-      </div>
-      <div class="rf-trust">
-        <span class="rf-badge">✓ ייעוץ מקצועי מובטח</span>
-        <span class="rf-badge">🔒 פרטיות מלאה</span>
-      </div>
-    </div>
-    <div class="rf-cols">
-      <div class="rf-col"><h4>מי אנחנו</h4><ul>
-        <li><a href="#" onclick="event.preventDefault();showPage('about')">הסיפור שלנו</a></li>
-        <li><a href="#" onclick="event.preventDefault();showPage('about')">אודות</a></li>
-        <li><a href="#" onclick="event.preventDefault();showPage('contact')">בואו לעבוד איתנו</a></li>
-      </ul></div>
-      <div class="rf-col"><h4>השירותים שלנו</h4><ul>
-        <li><a href="#" onclick="event.preventDefault();showPage('programs')">מסלולי הליווי</a></li>
-        <li><a href="#" onclick="event.preventDefault();showPage('programs')">לפני הגיוס</a></li>
-        <li><a href="#" onclick="event.preventDefault();showPage('programs')">במהלך השירות</a></li>
-        <li><a href="#" onclick="event.preventDefault();showPage('programs')">לאחר השחרור</a></li>
-      </ul></div>
-      <div class="rf-col"><h4>תמיכה</h4><ul>
-        <li><a href="#" onclick="event.preventDefault();showPage('faq')">שאלות נפוצות</a></li>
-        <li><a href="#" onclick="event.preventDefault();showPage('contact')">צור קשר</a></li>
-        <li><a href="https://wa.me/9720537037556">WhatsApp</a></li>
-      </ul></div>
-      <div class="rf-col"><h4>משפטי</h4><ul>
-        <li><a href="#" onclick="event.preventDefault();showPage('terms')">תנאי שימוש</a></li>
-        <li><a href="#" onclick="event.preventDefault();showPage('privacy')">מדיניות פרטיות</a></li>
-      </ul></div>
-    </div>
-  </div>
-  <div class="rf-bottom">© 2025 Amnon Support, ייעוץ צבאי מקצועי. כל הזכויות שמורות.</div>
-</footer>
-</div><!-- /page-faq -->
-
-<!-- TERMS PAGE -->
-<div id="page-terms" style="display:none">
-<div class="static-hero">
-  <div class="container">
-    <div class="ab-badge">✦ מסמך משפטי</div>
-    <h2 class="ab-title">תנאי <span class="ab-green">שימוש</span></h2>
-    <p style="color:#cfd8a8;font-size:14px">עדכון אחרון: ינואר 2025</p>
-  </div>
-</div>
-<div class="container legal-body">
-
-  <div class="legal-section">
-    <h3>1. כללי</h3>
-    <p>ברוכים הבאים לאתר ייעוץ צבאי מקצועי. השימוש באתר זה מהווה הסכמה לתנאי השימוש המפורטים להלן. אנא קראו אותם בעיון לפני השימוש בשירותינו.</p>
-  </div>
-
-  <div class="legal-section">
-    <h3>2. השירותים המוצעים</h3>
-    <p>האתר מספק מידע כללי בנושא ייעוץ צבאי ומשמש ככלי ליצירת קשר ראשונית עם המשרד. המידע באתר הוא כללי בלבד ואינו מהווה ייעוץ משפטי מחייב. ייעוץ פרטני ניתן במסגרת פגישה אישית בלבד.</p>
-  </div>
-
-  <div class="legal-section">
-    <h3>3. הגבלת אחריות</h3>
-    <p>המידע המוצג באתר ניתן כשירות לציבור. המשרד ו/או מי מטעמו לא יישאו באחריות לכל נזק, ישיר או עקיף, שייגרם כתוצאה מהסתמכות על המידע שבאתר ללא ייעוץ פרטני. תוצאות הליכים משפטיים ובירוקרטיים עשויות להשתנות בהתאם לנסיבות כל מקרה.</p>
-  </div>
-
-  <div class="legal-section">
-    <h3>4. קניין רוחני</h3>
-    <p>כל התכנים באתר זה, לרבות טקסטים, עיצוב, לוגו ומבנה האתר, הם רכושו הבלעדי של המשרד. אין להעתיק, לשכפל, להפיץ או לעשות שימוש מסחרי בכל תוכן מהאתר ללא אישור מפורש בכתב.</p>
-  </div>
-
-  <div class="legal-section">
-    <h3>5. קישורים חיצוניים</h3>
-    <p>האתר עשוי להכיל קישורים לאתרים חיצוניים. אנחנו אינם אחראים לתכנים של אתרים אלה ולמדיניות הפרטיות שלהם. הכניסה לאתרים חיצוניים היא באחריות המשתמש בלבד.</p>
-  </div>
-
-  <div class="legal-section">
-    <h3>6. שינויים בתנאים</h3>
-    <p>אנחנו שומרים לעצמנו את הזכות לעדכן תנאי שימוש אלה מעת לעת. שינויים מהותיים יפורסמו באתר. המשך השימוש באתר לאחר פרסום שינויים מהווה הסכמה לתנאים המעודכנים.</p>
-  </div>
-
-  <div class="legal-section">
-    <h3>7. יצירת קשר</h3>
-    <p>לכל שאלה בנוגע לתנאי השימוש ניתן לפנות אלינו:<br>
-    טלפון: <a href="tel:0537037556" style="color:var(--green)">053-703-7556</a><br>
-</p>
-  </div>
-
-</div>
-<footer class="rich-footer">
-  <div class="rf-inner">
-    <div class="rf-brand">
-      <div class="rf-logo">Amnon Support</div>
-      <p class="rf-tagline">המקום המקצועי שלך לקבל ייעוץ, לצמוח ולהצליח. אנחנו כאן בשבילך, מהצו הראשון ועד השחרור.</p>
-      <div class="rf-contact">
-        <a href="tel:0537037556"><span class="rf-contact-icon">📞</span>053-703-7556</a>
-        <a href="https://wa.me/9720537037556"><span class="rf-contact-icon">💬</span>WhatsApp</a>
-      </div>
-      <div class="rf-trust">
-        <span class="rf-badge">✓ ייעוץ מקצועי מובטח</span>
-        <span class="rf-badge">🔒 פרטיות מלאה</span>
-      </div>
-    </div>
-    <div class="rf-cols">
-      <div class="rf-col"><h4>מי אנחנו</h4><ul>
-        <li><a href="#" onclick="event.preventDefault();showPage('about')">הסיפור שלנו</a></li>
-        <li><a href="#" onclick="event.preventDefault();showPage('about')">אודות</a></li>
-        <li><a href="#" onclick="event.preventDefault();showPage('contact')">בואו לעבוד איתנו</a></li>
-      </ul></div>
-      <div class="rf-col"><h4>השירותים שלנו</h4><ul>
-        <li><a href="#" onclick="event.preventDefault();showPage('programs')">מסלולי הליווי</a></li>
-        <li><a href="#" onclick="event.preventDefault();showPage('programs')">לפני הגיוס</a></li>
-        <li><a href="#" onclick="event.preventDefault();showPage('programs')">במהלך השירות</a></li>
-        <li><a href="#" onclick="event.preventDefault();showPage('programs')">לאחר השחרור</a></li>
-      </ul></div>
-      <div class="rf-col"><h4>תמיכה</h4><ul>
-        <li><a href="#" onclick="event.preventDefault();showPage('faq')">שאלות נפוצות</a></li>
-        <li><a href="#" onclick="event.preventDefault();showPage('contact')">צור קשר</a></li>
-        <li><a href="https://wa.me/9720537037556">WhatsApp</a></li>
-      </ul></div>
-      <div class="rf-col"><h4>משפטי</h4><ul>
-        <li><a href="#" onclick="event.preventDefault();showPage('terms')">תנאי שימוש</a></li>
-        <li><a href="#" onclick="event.preventDefault();showPage('privacy')">מדיניות פרטיות</a></li>
-      </ul></div>
-    </div>
-  </div>
-  <div class="rf-bottom">© 2025 Amnon Support, ייעוץ צבאי מקצועי. כל הזכויות שמורות.</div>
-</footer>
-</div><!-- /page-terms -->
-
-<!-- PRIVACY PAGE -->
-<div id="page-privacy" style="display:none">
-<div class="static-hero">
-  <div class="container">
-    <div class="ab-badge">✦ מסמך משפטי</div>
-    <h2 class="ab-title">מדיניות <span class="ab-green">פרטיות</span></h2>
-    <p style="color:#cfd8a8;font-size:14px">עדכון אחרון: ינואר 2025</p>
-  </div>
-</div>
-<div class="container legal-body">
-
-  <div class="legal-section">
-    <h3>1. כללי</h3>
-    <p>המשרד, ייעוץ צבאי מקצועי, מחויב להגנה על פרטיות המשתמשים באתר זה. מדיניות פרטיות זו מסבירה כיצד אנחנו אוספים, משתמשים ושומרים על המידע שאתם מספקים לנו.</p>
-  </div>
-
-  <div class="legal-section">
-    <h3>2. איסוף מידע</h3>
-    <p>אנחנו אוספים מידע שאתם מספקים לנו מרצונכם, כגון: שם, מספר טלפון, כתובת דוא"ל ותיאור הבעיה, בעת מילוי טפסי יצירת קשר. מידע זה נאסף לצורך מתן שירות בלבד.</p>
-  </div>
-
-  <div class="legal-section">
-    <h3>3. שימוש במידע</h3>
-    <p>המידע שנאסף ישמש אך ורק לצורך:</p>
-    <ul style="margin:8px 0 0 0;padding-right:20px;line-height:2">
-      <li>יצירת קשר חוזרת עם הפונה</li>
-      <li>מתן שירות ייעוץ מקצועי</li>
-      <li>שיפור השירות ומענה לצרכי הלקוחות</li>
-    </ul>
-    <p style="margin-top:10px">אנחנו <strong>לא</strong> מוכרים, משכירים או משתפים את המידע האישי שלכם עם גורמים שלישיים ללא הסכמתכם.</p>
-  </div>
-
-  <div class="legal-section">
-    <h3>4. אבטחת מידע</h3>
-    <p>אנחנו נוקטים באמצעי אבטחה סבירים להגנה על המידע האישי שלכם מפני גישה, שימוש, שינוי או גילוי בלתי מורשים. עם זאת, אין ביכולתנו להבטיח אבטחה מוחלטת של מידע המועבר דרך האינטרנט.</p>
-  </div>
-
-  <div class="legal-section">
-    <h3>5. עוגיות (Cookies)</h3>
-    <p>האתר עשוי לעשות שימוש בעוגיות לצורך שיפור חוויית הגלישה. ניתן להגדיר את הדפדפן לסרב לעוגיות, אך הדבר עשוי להשפיע על פונקציונליות מסוימת של האתר.</p>
-  </div>
-
-  <div class="legal-section">
-    <h3>6. זכויות המשתמש</h3>
-    <p>בהתאם לחוק הגנת הפרטיות, יש לכם הזכות לעיין במידע האישי שנשמר אודותיכם, לתקן אותו או לבקש את מחיקתו. לבקשות מסוג זה, פנו אלינו ישירות.</p>
-  </div>
-
-  <div class="legal-section">
-    <h3>7. יצירת קשר</h3>
-    <p>לכל שאלה בנוגע למדיניות הפרטיות:<br>
-    טלפון: <a href="tel:0537037556" style="color:var(--green)">053-703-7556</a><br>
-</p>
-  </div>
-
-</div>
-<footer class="rich-footer">
-  <div class="rf-inner">
-    <div class="rf-brand">
-      <div class="rf-logo">Amnon Support</div>
-      <p class="rf-tagline">המקום המקצועי שלך לקבל ייעוץ, לצמוח ולהצליח. אנחנו כאן בשבילך, מהצו הראשון ועד השחרור.</p>
-      <div class="rf-contact">
-        <a href="tel:0537037556"><span class="rf-contact-icon">📞</span>053-703-7556</a>
-        <a href="https://wa.me/9720537037556"><span class="rf-contact-icon">💬</span>WhatsApp</a>
-      </div>
-      <div class="rf-trust">
-        <span class="rf-badge">✓ ייעוץ מקצועי מובטח</span>
-        <span class="rf-badge">🔒 פרטיות מלאה</span>
-      </div>
-    </div>
-    <div class="rf-cols">
-      <div class="rf-col"><h4>מי אנחנו</h4><ul>
-        <li><a href="#" onclick="event.preventDefault();showPage('about')">הסיפור שלנו</a></li>
-        <li><a href="#" onclick="event.preventDefault();showPage('about')">אודות</a></li>
-        <li><a href="#" onclick="event.preventDefault();showPage('contact')">בואו לעבוד איתנו</a></li>
-      </ul></div>
-      <div class="rf-col"><h4>השירותים שלנו</h4><ul>
-        <li><a href="#" onclick="event.preventDefault();showPage('programs')">מסלולי הליווי</a></li>
-        <li><a href="#" onclick="event.preventDefault();showPage('programs')">לפני הגיוס</a></li>
-        <li><a href="#" onclick="event.preventDefault();showPage('programs')">במהלך השירות</a></li>
-        <li><a href="#" onclick="event.preventDefault();showPage('programs')">לאחר השחרור</a></li>
-      </ul></div>
-      <div class="rf-col"><h4>תמיכה</h4><ul>
-        <li><a href="#" onclick="event.preventDefault();showPage('faq')">שאלות נפוצות</a></li>
-        <li><a href="#" onclick="event.preventDefault();showPage('contact')">צור קשר</a></li>
-        <li><a href="https://wa.me/9720537037556">WhatsApp</a></li>
-      </ul></div>
-      <div class="rf-col"><h4>משפטי</h4><ul>
-        <li><a href="#" onclick="event.preventDefault();showPage('terms')">תנאי שימוש</a></li>
-        <li><a href="#" onclick="event.preventDefault();showPage('privacy')">מדיניות פרטיות</a></li>
-      </ul></div>
-    </div>
-  </div>
-  <div class="rf-bottom">© 2025 Amnon Support, ייעוץ צבאי מקצועי. כל הזכויות שמורות.</div>
-</footer>
-</div><!-- /page-privacy -->
-
-<!-- ACCESSIBILITY PAGE -->
-<div id="page-accessibility" style="display:none">
-<div class="static-hero">
-  <div class="container">
-    <div class="ab-badge">♿ נגישות</div>
-    <h2 class="ab-title">הצהרת <span class="ab-green">נגישות</span></h2>
-    <p style="color:#cfd8a8;max-width:580px;margin:0 auto;font-size:17px;line-height:1.9">ב-Amnon Support אנחנו מאמינים שמידע ושירות מקצועי צריכים להיות נגישים לכל אדם. אנו משקיעים כדי להבטיח חווית גלישה שוויונית גם עבור אנשים עם מוגבלויות.</p>
-  </div>
-</div>
-<div class="container" style="padding:48px 24px 80px;max-width:860px;direction:rtl">
-
-  <div class="legal-section">
-    <h3>מחויבות לנגישות</h3>
-    <p>אנו מייחסים חשיבות רבה למתן שירות שוויוני לכלל הציבור ולשיפור הנגישות עבור אנשים עם מוגבלות. האתר הותאם לדרישות תקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע"ג 2013, בהתאם להמלצות התקן הישראלי ת"י 5568 ומסמך WCAG 2.1 ברמה AA.</p>
-  </div>
-
-  <div class="legal-section">
-    <h3>ניווט ומקלדת</h3>
-    <ul style="margin:10px 0 0;padding-right:20px;color:var(--muted);line-height:2.1;font-size:15px">
-      <li>ניווט מלא באמצעות המקלדת בלבד (Tab, Enter, חצים)</li>
-      <li>פוקוס ברור ונראה על כל האלמנטים האינטראקטיביים</li>
-      <li>רכיב "דלג לתוכן הראשי" המאפשר דילוג מהיר על תפריטי הניווט</li>
-    </ul>
-  </div>
-
-  <div class="legal-section">
-    <h3>חזותי ועיצוב</h3>
-    <ul style="margin:10px 0 0;padding-right:20px;color:var(--muted);line-height:2.1;font-size:15px">
-      <li>תאימות לקוראי מסך מובילים (NVDA, JAWS)</li>
-      <li>ניגודיות צבעים גבוהה בין טקסטים לרקעים</li>
-      <li>הגדלת טקסט עד 200% ללא פגיעה בתצוגה</li>
-      <li>widget נגישות מובנה לשינוי גודל טקסט, ניגודיות, פונט קריא ועוד</li>
-    </ul>
-  </div>
-
-  <div class="legal-section">
-    <h3>מבנה האתר</h3>
-    <ul style="margin:10px 0 0;padding-right:20px;color:var(--muted);line-height:2.1;font-size:15px">
-      <li>מבנה סמנטי עם כותרות היררכיות (H1, H2, H3) לניווט קל</li>
-      <li>לכל תמונה בעלת משמעות מצורף טקסט חלופי (Alt Text)</li>
-      <li>שדות הטפסים כוללים תוויות (Labels) ברורות</li>
-      <li>תגיות שפה וכיוון (lang="he", dir="rtl") מוגדרות כראוי</li>
-    </ul>
-  </div>
-
-  <div class="legal-section" style="background:#f7f9f4;border-radius:12px;padding:24px;border:none">
-    <h3 style="margin-top:0">נתקלתם בבעיה? ספרו לנו!</h3>
-    <p>אנו שואפים לשמור על האתר ברמת נגישות מיטבית. אם נתקלתם בקושי או שאתם זקוקים לעזרה, נשמח לשמוע ולסייע.</p>
-    <p style="margin:12px 0 0">
-      <strong>רכז הנגישות:</strong> אמנון<br>
-      טלפון: <a href="tel:0537037556" style="color:var(--green);font-weight:700">053-703-7556</a><br>
-    </p>
-  </div>
-
-  <div class="legal-section">
-    <h3>עדכון הצהרה</h3>
-    <p>הצהרה זו עודכנה לאחרונה: אוגוסט 2025.</p>
-  </div>
-</div>
-<footer style="background:var(--olive-d);color:#cfd8a8;text-align:center;padding:24px;font-size:14px">
-  <div class="rf-bottom">© 2025 Amnon Support, ייעוץ צבאי מקצועי. כל הזכויות שמורות.</div>
-</footer>
-</div><!-- /page-accessibility -->
-
-<style>
-  .static-hero{
-    background:linear-gradient(rgba(20,38,10,.94),rgba(20,38,10,.94));
-    color:#fff;text-align:center;padding:60px 24px 70px;direction:rtl;
-  }
-  .faq-body{padding:40px 24px 60px;max-width:800px}
-  .faq-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
-  .faq-item{border-bottom:1px solid var(--line)}
-  .faq-item:last-child{border-bottom:none}
-  .faq-q{
-    width:100%;background:none;border:none;padding:18px 22px;
-    font-size:15px;font-weight:700;color:#1a2406;
-    text-align:right;cursor:pointer;font-family:inherit;
-    display:flex;justify-content:space-between;align-items:center;gap:12px;
-    transition:background .15s;
-  }
-  .faq-q:hover{background:rgba(107,142,35,.06)}
-  .faq-q.open{background:rgba(107,142,35,.08);color:var(--green-d)}
-  .faq-arr{font-size:18px;color:var(--green);transition:transform .2s;flex-shrink:0}
-  .faq-q.open .faq-arr{transform:rotate(180deg)}
-  .faq-a{
-    display:none;padding:0 22px 18px;font-size:14px;
-    color:var(--muted);line-height:1.8;
-  }
-  .faq-a.open{display:block}
-
-  .legal-body{padding:40px 24px 60px;max-width:800px}
-  .legal-section{margin-bottom:32px}
-  .legal-section h3{font-size:17px;font-weight:800;color:#1a2406;margin:0 0 10px;padding-bottom:8px;border-bottom:1px solid var(--line)}
-  .legal-section p{font-size:14px;color:var(--muted);line-height:1.9;margin:0}
-</style>
-
-<script>
-function toggleFaq(btn){
-  btn.classList.toggle('open');
-  const ans = btn.nextElementSibling;
-  ans.classList.toggle('open');
-}
-</script>
-
-<style>
-  .prog-hero{
-    background:linear-gradient(rgba(30,50,10,.92),rgba(30,50,10,.92));
-    color:#fff;text-align:center;padding:70px 24px 80px;
-  }
-  .prog-hero h2{font-size:44px;font-weight:900;margin:12px 0 16px;line-height:1.25}
-  .prog-hero p{color:#cfd8a8;font-size:16px;max-width:640px;margin:0 auto;line-height:1.8}
-
-  .prog-body{padding:40px 24px 80px}
-
-  .prog-tabs{display:flex;gap:8px;margin-bottom:36px;border-bottom:2px solid var(--line);padding-bottom:0;direction:rtl}
-  .prog-tab{
-    background:none;border:none;padding:12px 24px;font-size:15px;font-weight:700;
-    color:var(--muted);cursor:pointer;font-family:inherit;
-    border-bottom:3px solid transparent;margin-bottom:-2px;transition:.2s;
-  }
-  .prog-tab:hover{color:var(--green)}
-  .prog-tab.active{color:var(--green);border-bottom-color:var(--green)}
-
-  .prog-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;direction:rtl;
-  }
-  .prog-card{
-    background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px;
-    display:flex;flex-direction:column;gap:10px;
-    transition:box-shadow .2s, transform .2s;
-  }
-  .prog-card:hover{box-shadow:0 8px 28px rgba(107,142,35,.18);transform:translateY(-3px)}
-  .prog-cat{font-size:12px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.5px}
-  .prog-card h3{font-size:18px;font-weight:800;color:#1a2406;margin:0}
-  .prog-card p{font-size:14px;color:var(--muted);line-height:1.7;margin:0;flex:1}
-  .prog-bullets{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px}
-  .prog-bullets li{font-size:13px;color:var(--green-d);font-weight:600}
-  .prog-btns{display:flex;gap:8px;margin-top:4px;flex-direction:row-reverse}
-  .prog-btn-main{
-    background:var(--green-l);color:#1a2406;border:none;
-    padding:9px 16px;border-radius:7px;font-weight:800;font-size:13px;
-    cursor:pointer;font-family:inherit;flex:1;transition:background .2s;
-  }
-  .prog-btn-main:hover{background:#b9d655}
-  .prog-btn-ghost{
-    background:none;border:1.5px solid var(--line);color:var(--muted);
-    padding:9px 14px;border-radius:7px;font-weight:600;font-size:13px;
-    cursor:pointer;font-family:inherit;transition:.2s;
-  }
-  .prog-btn-ghost:hover{border-color:var(--green);color:var(--green)}
-
-  @media(max-width:900px){.prog-grid{grid-template-columns:1fr}}
-  @media(max-width:600px){.prog-grid{grid-template-columns:1fr}.prog-btns{flex-direction:column}}
-</style>
-
-<script>
-function switchTab(name, btn){
-  document.querySelectorAll('.prog-tab').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  ['before','during','after'].forEach(t=>{
-    document.getElementById('tab-'+t).style.display = t===name ? 'grid' : 'none';
-  });
-}
-</script>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials">
-  <div class="container">
-    <h2>מאחורינו מאות תיקים<br>שהסתיימו בהצלחה</h2>
-    <p class="lead">אנחנו מזמינים אתכם לקרוא מה חיילים וחיילות שהיו במקום שאתם נמצאים היום כותבים ומרגישים ביום שאחרי.</p>
-    <div class="testi-grid">
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"הייתי בסיטואציה קשה עם עריקות ולא ידעתי לאן לפנות. הצוות טיפל בהכל תוך שבועיים, הסדיר את המעמד ובסוף יצאתי עם עונש מינימלי. ממליץ בחום."</p>
-        <div class="testi-author">
-          <div class="testi-avatar" style="background:#e05252">י</div>
-          <div><div class="testi-name">יוסי כ.</div><div class="testi-role">הסדרת עריקות</div></div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"פניתי בגלל בעיות רפואיות שהצבא לא הכיר בהן. הצוות ידע בדיוק אילו מסמכים צריך, ותוך 3 חודשים קיבלתי פטור. הם באמת שינו לי את החיים."</p>
-        <div class="testi-author">
-          <div class="testi-avatar" style="background:#4c7ee0">מ</div>
-          <div><div class="testi-name">מיכל ר.</div><div class="testi-role">פטור משירות</div></div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"רציתי לרדת מקרבי בגלל מצב נפשי, פחדתי שלא ירשמו לי. הצוות ליווה אותי בכל ועדה, ידע מה לומר ומה לא. הצלחתי לקבל פרופיל 45."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">ד</div>
-          <div><div class="testi-name">דניאל ל.</div><div class="testi-role">ירידה מקרבי</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="testi-cta">
-      <button onclick="openModal()" style="display:inline-block;background:var(--green-l);color:#1a2406;font-weight:800;font-size:16px;padding:14px 30px;border-radius:8px;border:0;cursor:pointer;font-family:inherit">
-        רוצים להיות חלק מהם? בואו נתחיל בתהליך ←
-      </button>
-    </div>
-  </div>
-</section>
-
-<footer class="rich-footer">
-  <div class="rf-inner">
-    <div class="rf-brand">
-      <div class="rf-logo">Amnon Support</div>
-      <p class="rf-tagline">המקום המקצועי שלך לקבל ייעוץ, לצמוח ולהצליח. אנחנו כאן בשבילך, מהצו הראשון ועד השחרור.</p>
-      <div class="rf-contact">
-        <a href="tel:0537037556"><span class="rf-contact-icon">📞</span>053-703-7556</a>
-        <a href="https://wa.me/9720537037556"><span class="rf-contact-icon">💬</span>WhatsApp</a>
-      </div>
-      <div class="rf-trust">
-        <span class="rf-badge">✓ ייעוץ מקצועי מובטח</span>
-        <span class="rf-badge">🔒 פרטיות מלאה</span>
-      </div>
-    </div>
-    <div class="rf-cols">
-      <div class="rf-col">
-        <h4>מי אנחנו</h4>
-        <ul>
-          <li><a href="#" onclick="event.preventDefault();showPage('about')">הסיפור שלנו</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('about')">הצוות המקצועי</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('about')">אודות</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('contact')">בואו לעבוד איתנו</a></li>
-        </ul>
-      </div>
-      <div class="rf-col">
-        <h4>השירותים שלנו</h4>
-        <ul>
-          <li><a href="#" onclick="event.preventDefault();showPage('programs')">מסלולי הליווי</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('programs')">לפני הגיוס</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('programs')">במהלך השירות</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('programs')">לאחר השחרור</a></li>
-        </ul>
-      </div>
-      <div class="rf-col">
-        <h4>תמיכה</h4>
-        <ul>
-          <li><a href="#" onclick="event.preventDefault();showPage('faq')">שאלות נפוצות</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('contact')">צור קשר</a></li>
-          <li><a href="https://wa.me/9720537037556">WhatsApp</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('accessibility')">הצהרת נגישות</a></li>
-        </ul>
-      </div>
-      <div class="rf-col">
-        <h4>משפטי</h4>
-        <ul>
-          <li><a href="#" onclick="event.preventDefault();showPage('terms')">תנאי שימוש</a></li>
-          <li><a href="#" onclick="event.preventDefault();showPage('privacy')">מדיניות פרטיות</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="rf-bottom">© 2025 Amnon Support, ייעוץ צבאי מקצועי. כל הזכויות שמורות.</div>
-</footer>
-
-<!-- MODAL -->
-<div class="overlay" id="overlay" onclick="if(event.target===this)closeModal()">
-  <div class="modal">
-    <button class="close-btn" onclick="closeModal()">×</button>
-    <h2>שיחת ייעוץ ללא עלות</h2>
-    <p>השאירו פרטים ונחזור אליכם בהקדם.</p>
-    <form action="https://formsubmit.co/rondarkon@gmail.com" method="POST" style="display:contents">
-      <input type="hidden" name="_subject" value="פנייה חדשה מהאתרAmnon Support">
-      <input type="hidden" name="_next" value="https://pturmitzahal.online">
-      <input type="hidden" name="_captcha" value="false">
-      <label>שם מלא</label>
-      <input name="name" required maxlength="80">
-      <label>טלפון</label>
-      <input name="phone" required maxlength="20">
-      <label>תיאור קצר של הבעיה</label>
-      <textarea name="message" required maxlength="600"></textarea>
-      <button type="submit">שלח ←</button>
-    </form>
-  </div>
-</div>
-
-<!-- Back to top -->
-<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="חזרה למעלה">↑</button>
-
-<!-- Mobile sticky CTA bar -->
-<div class="mob-cta-bar">
-  <a href="tel:0537037556" class="mcta-call">📞 התקשרו עכשיו</a>
-  <a href="https://wa.me/9720537037556" class="mcta-wa" target="_blank">💬 WhatsApp</a>
-</div>
-
-<!-- WhatsApp float -->
-<a class="wa-float" href="https://wa.me/9720537037556" target="_blank" rel="noopener" aria-label="שלחו הודעה ב-WhatsApp">
-  <span class="wa-float-tip">שלחו הודעה ב-WhatsApp</span>
-  💬
-</a>
-
-</div><!-- /a11y-wrap -->
-
-<!-- Accessibility Widget -->
-<div class="a11y-widget" id="a11yWidget">
-  <button class="a11y-btn" id="a11yToggleBtn" onclick="toggleA11yPanel()" aria-label="פתח תפריט נגישות" aria-expanded="false">
-    <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26" aria-hidden="true"><circle cx="12" cy="4" r="2"/><path d="M19 7H5a1 1 0 000 2h6v3l-2.5 5H10a1 1 0 000 2h1.5l1-2h3l1 2H18a1 1 0 000-2h-.5L15 12V9h4a1 1 0 000-2z"/></svg>
-  </button>
-  <div class="a11y-panel" id="a11yPanel" role="dialog" aria-label="תפריט נגישות" style="display:none">
-    <!-- Header -->
-    <div class="a11y-panel-head">
-      <button class="a11y-reset" onclick="resetA11y()">איפוס</button>
-      <span>נגישות</span>
-      <button class="a11y-close-btn" onclick="toggleA11yPanel()" aria-label="סגור">✕</button>
-    </div>
-    <!-- Font size -->
-    <div class="a11y-section">
-      <div class="a11y-sec-lbl">
-        <span class="a11y-sz-icon lg">T</span>
-        <span>גודל טקסט</span>
-        <span class="a11y-sz-val" id="a11ySzVal">100%</span>
-      </div>
-      <div class="a11y-slider-row">
-        <span class="a11y-sz-icon">A</span>
-        <input type="range" min="80" max="200" value="100" id="a11yFontSlider"
-          oninput="setA11yFontSize(this.value)" aria-label="גודל טקסט">
-        <span class="a11y-sz-icon lg">A</span>
-      </div>
-    </div>
-    <!-- Contrast -->
-    <div class="a11y-section">
-      <div class="a11y-sec-lbl"><span>ניגודיות וצבעים</span></div>
-      <div class="a11y-grid4">
-        <button class="a11y-mode active" id="cm-normal" onclick="setA11yContrast('normal')">✓ רגיל</button>
-        <button class="a11y-mode" id="cm-invert" onclick="setA11yContrast('invert')">☽ היפוך</button>
-        <button class="a11y-mode" id="cm-high"   onclick="setA11yContrast('high')">☀ גבוהה</button>
-        <button class="a11y-mode" id="cm-gray"   onclick="setA11yContrast('gray')">👁 אפור</button>
-      </div>
-    </div>
-    <!-- Toggles -->
-    <div class="a11y-toggle-row">
-      <div class="a11y-toggle-lbl"><span class="a11y-toggle-ico">🔗</span>הדגשת קישורים</div>
-      <button class="a11y-switch" id="sw-links" onclick="toggleA11y('links','a11y-links',this)" role="switch" aria-checked="false" aria-label="הדגשת קישורים"></button>
-    </div>
-    <div class="a11y-toggle-row">
-      <div class="a11y-toggle-lbl"><span class="a11y-toggle-ico">T</span>פונט קריא</div>
-      <button class="a11y-switch" id="sw-font" onclick="toggleA11y('font','a11y-font',this)" role="switch" aria-checked="false" aria-label="פונט קריא"></button>
-    </div>
-    <div class="a11y-toggle-row">
-      <div class="a11y-toggle-lbl"><span class="a11y-toggle-ico">🚫</span>בטל אנימציות</div>
-      <button class="a11y-switch" id="sw-anim" onclick="toggleA11y('anim','a11y-noanim',this)" role="switch" aria-checked="false" aria-label="בטל אנימציות"></button>
-    </div>
-    <div class="a11y-toggle-row" style="border-bottom:none">
-      <div class="a11y-toggle-lbl"><span class="a11y-toggle-ico">↗</span>סרגל קריאה</div>
-      <button class="a11y-switch" id="sw-reader" onclick="toggleA11y('reader','',this)" role="switch" aria-checked="false" aria-label="סרגל קריאה"></button>
-    </div>
-    <!-- Spacing -->
-    <div class="a11y-section">
-      <div class="a11y-sec-lbl"><span>מרווח טקסט ≡</span></div>
-      <div class="a11y-grid3">
-        <button class="a11y-mode active" id="sp-normal" onclick="setA11ySpacing('normal')">רגיל</button>
-        <button class="a11y-mode" id="sp-med"    onclick="setA11ySpacing('med')">בינוני</button>
-        <button class="a11y-mode" id="sp-wide"   onclick="setA11ySpacing('wide')">רחב</button>
-      </div>
-    </div>
-    <div class="a11y-footer">נגישות באתר Amnon Support</div>
-  </div>
-</div>
-<!-- Reading guide bar -->
-<div class="a11y-reader-bar" id="a11yReaderBar"></div>
-
-<script>
-function openModal(){document.getElementById('overlay').classList.add('open')}
-function closeModal(){document.getElementById('overlay').classList.remove('open')}
-
-// ── Loader ──
-window.addEventListener('load',()=>{
-  const loader = document.getElementById('loader');
-  setTimeout(()=>{
-    loader.classList.add('out');
-    setTimeout(()=>loader.remove(), 600);
-  }, 1350);
-});
-
-// ── Mobile menu ──
-function openMobMenu(){document.getElementById('mobMenu').classList.add('open');document.body.style.overflow='hidden'}
-function closeMobMenu(){document.getElementById('mobMenu').classList.remove('open');document.body.style.overflow=''}
-
-// ── Back to top ──
-window.addEventListener('scroll',()=>{
-  document.getElementById('backTop').classList.toggle('show', window.scrollY > 300);
-});
-
-// ── 1. Scroll fade-in ──
-(function(){
-  const obs = new IntersectionObserver((entries)=>{
-    entries.forEach((e,i)=>{
-      if(e.isIntersecting){
-        const el = e.target;
-        const delay = el.dataset.delay || 0;
-        setTimeout(()=>el.classList.add('visible'), delay);
-        obs.unobserve(el);
-      }
-    });
-  },{threshold:0.12});
-
-  function registerFade(selector, stagger){
-    document.querySelectorAll(selector).forEach((el,i)=>{
-      el.classList.add('fade-in');
-      if(stagger) el.dataset.delay = i * 80;
-      obs.observe(el);
-    });
-  }
-  registerFade('.wp', true);
-  registerFade('.svc', true);
-  registerFade('.prog-card', true);
-  registerFade('.ab-feat', true);
-  registerFade('.ab-vis-card', true);
-  registerFade('.faq-item', true);
-  registerFade('.legal-section', true);
-  registerFade('.pillar', true);
-  registerFade('.stat', true);
-})();
-
-// ── 2. Animated stats counter ──
-(function(){
-  function fmt(n){ return n>=1000 ? Math.floor(n/1000)+','+String(Math.floor(n%1000)).padStart(3,'0') : String(n); }
-  function runCounter(el, target, prefix, suffix){
-    const dur = 1400;
-    const start = performance.now();
-    function tick(now){
-      const t = Math.min((now-start)/dur, 1);
-      const ease = 1 - Math.pow(1-t, 3);
-      el.textContent = prefix + fmt(Math.round(ease*target)) + suffix;
-      if(t < 1) requestAnimationFrame(tick);
-      else el.textContent = prefix + fmt(target) + suffix;
-    }
-    requestAnimationFrame(tick);
-  }
-  const statsEl = document.querySelector('.stats-grid');
-  if(!statsEl) return;
-  let fired = false;
-  new IntersectionObserver(entries=>{
-    if(entries[0].isIntersecting && !fired){
-      fired = true;
-      document.querySelectorAll('.stat .num').forEach(el=>{
-        const raw = el.textContent.trim();
-        const prefix = raw.startsWith('+') ? '+' : '';
-        const suffix = raw.endsWith('%') ? '%' : '';
-        const target = parseInt(raw.replace(/[+%,]/g,''), 10);
-        if(!isNaN(target)) runCounter(el, target, prefix, suffix);
-      });
-    }
-  },{threshold:0.25}).observe(statsEl);
-})();
-
-// ── 3. Program card icons ──
-(function(){
-  const icons = {
-    'שיבוץ והכנה':'🎯','רפואה וצבא':'🏥','נתוני איכות':'📊',
-    'בירוקרטיה':'📋','מוטיבציה':'⚡','זכויות פרט':'⚖️',
-    'משפט וסטטוס':'🔐','רווחה':'🤲','זכויות':'✊',
-    'רווחה ות"ש':'🏠','ליווי אישי':'🧭','קרבי':'🛡️',
-    'פטור':'🚪','עריקות':'📝','לימודים וקריירה':'🎓','פיננסי':'💰'
-  };
-  document.querySelectorAll('.prog-cat').forEach(cat=>{
-    const icon = icons[cat.textContent.trim()];
-    if(icon){
-      const span = document.createElement('span');
-      span.className = 'prog-card-icon';
-      span.textContent = icon;
-      cat.parentElement.prepend(span);
-    }
-  });
-})();
-</script>
+  </footer>
+</body>
+</html>
